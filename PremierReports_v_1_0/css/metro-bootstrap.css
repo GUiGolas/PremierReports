@@ -4066,7 +4066,7 @@ a {
 .metro .navbar .navigation-bar-content .element:hover,
 .metro .navigation-bar .navbar-content .element:hover,
 .metro .navbar .navbar-content .element:hover {
-  background-color: #00aafd;
+  background-color: #C5D300;
 }
 .metro .navigation-bar .navigation-bar-content .element > a.dropdown-toggle,
 .metro .navbar .navigation-bar-content .element > a.dropdown-toggle,
@@ -5728,13 +5728,14 @@ a {
   z-index: 10;
   top: 0;
   left: 0;
-  color: inherit;
-  background-color: #eeeeee;
+  color: white;
+  background-color: #4E7489;
 }
 .metro .tab-control .tabs > li.active a {
+  color: white;
   border-bottom-color: #ffffff;
-  background-color: #ffffff;
-  border-top: 2px #e51400 solid;
+  background-color: #1B5465;
+  border-top: 2px #C5D300 solid;
 }
 .metro .tab-control .tabs > li.active:hover a {
   background-color: #ffffff;
