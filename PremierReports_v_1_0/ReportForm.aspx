@@ -50,7 +50,7 @@
 <body class="metro">
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
-        <div id="reportFilter">
+        <div id="reportFilter" style="padding-left:50px;">
             <table id="tableFilter" style="color: white; font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif; background-color: transparent;">
                 <tr>
                     <td>
@@ -132,11 +132,35 @@
                                         </div>
                                     </div>
 
-                                    Datepicker
                                 </td>
                                 <td>
-                                    <asp:DropDownList ID="ddlHourIni" runat="server"></asp:DropDownList>
-                                    HourPicker
+                                    <asp:DropDownList ID="ddlHourIni" runat="server">
+                                        <asp:ListItem Selected="True">00:00</asp:ListItem>
+                                        <asp:ListItem>01:00</asp:ListItem>
+                                        <asp:ListItem>02:00</asp:ListItem>
+                                        <asp:ListItem>03:00</asp:ListItem>
+                                        <asp:ListItem>04:00</asp:ListItem>
+                                        <asp:ListItem>05:00</asp:ListItem>
+                                        <asp:ListItem>06:00</asp:ListItem>
+                                        <asp:ListItem>07:00</asp:ListItem>
+                                        <asp:ListItem>08:00</asp:ListItem>
+                                        <asp:ListItem>09:00</asp:ListItem>
+                                        <asp:ListItem>10:00</asp:ListItem>
+                                        <asp:ListItem>11:00</asp:ListItem>
+                                        <asp:ListItem>12:00</asp:ListItem>
+                                        <asp:ListItem>13:00</asp:ListItem>
+                                        <asp:ListItem>14:00</asp:ListItem>
+                                        <asp:ListItem>15:00</asp:ListItem>
+                                        <asp:ListItem>16:00</asp:ListItem>
+                                        <asp:ListItem>17:00</asp:ListItem>
+                                        <asp:ListItem>18:00</asp:ListItem>
+                                        <asp:ListItem>19:00</asp:ListItem>
+                                        <asp:ListItem>20:00</asp:ListItem>
+                                        <asp:ListItem>21:00</asp:ListItem>
+                                        <asp:ListItem>22:00</asp:ListItem>
+                                        <asp:ListItem>23:00</asp:ListItem>
+                                    </asp:DropDownList>
+                                    
                                 </td>
                             </tr>
                             <tr>
@@ -145,7 +169,7 @@
                                 </td>
                                 <td>
                                     <div class="input-control text" data-role="datepicker"  data-effect="slide" data-other-days="1">
-                                        <input type="text" readonly="readonly">
+                                        <input type="text" readonly="readonly" id="inpDateFin">
                                         <button class="btn-date" type="button"></button>
                                         <div class="calendar calendar-dropdown" style="position: absolute; display: none; max-width: 260px; z-index: 1000; top: 100%; left: 0px;">
                                             <table class="bordered">
@@ -215,37 +239,68 @@
                                             </table>
                                         </div>
                                     </div>
-                                    DatePicker
+                                    
                                 </td>
-                                <td>HourPicker
+                                <td>
+                                     <asp:DropDownList ID="ddlHourFin" runat="server">
+                                        <asp:ListItem Selected="True">00:00</asp:ListItem>
+                                        <asp:ListItem>01:00</asp:ListItem>
+                                        <asp:ListItem>02:00</asp:ListItem>
+                                        <asp:ListItem>03:00</asp:ListItem>
+                                        <asp:ListItem>04:00</asp:ListItem>
+                                        <asp:ListItem>05:00</asp:ListItem>
+                                        <asp:ListItem>06:00</asp:ListItem>
+                                        <asp:ListItem>07:00</asp:ListItem>
+                                        <asp:ListItem>08:00</asp:ListItem>
+                                        <asp:ListItem>09:00</asp:ListItem>
+                                        <asp:ListItem>10:00</asp:ListItem>
+                                        <asp:ListItem>11:00</asp:ListItem>
+                                        <asp:ListItem>12:00</asp:ListItem>
+                                        <asp:ListItem>13:00</asp:ListItem>
+                                        <asp:ListItem>14:00</asp:ListItem>
+                                        <asp:ListItem>15:00</asp:ListItem>
+                                        <asp:ListItem>16:00</asp:ListItem>
+                                        <asp:ListItem>17:00</asp:ListItem>
+                                        <asp:ListItem>18:00</asp:ListItem>
+                                        <asp:ListItem>19:00</asp:ListItem>
+                                        <asp:ListItem>20:00</asp:ListItem>
+                                        <asp:ListItem>21:00</asp:ListItem>
+                                        <asp:ListItem>22:00</asp:ListItem>
+                                        <asp:ListItem>23:00</asp:ListItem>
+                                    </asp:DropDownList>
+                                    
                                 </td>
                             </tr>
 
                         </table>
                     </td>
                     <td>
-                        <table style="background-color: transparent;">
+                        <table style="background-color: transparent;" >
                             <tr>
                                 <td>
-                                    <asp:Label ID="lblAddEventsR" runat="server" Text="Eventos"></asp:Label>
+                                    <asp:Label ID="lblAddEventsR" runat="server" Text="Eventos:"></asp:Label>
                                 </td>
-                                <td>Events DropDown
+                                
+                                <td>
+                                    <asp:DropDownList ID="ddlEvents" runat="server"></asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>Event List
+                                <td>
+                                    <asp:ListBox ID="lsbEvents" runat="server"></asp:ListBox>
                                 </td>
                             </tr>
                         </table>
                     </td>
-                    <td>Botao Submit
+                    <td>
+                        <asp:Button ID="bntReportSubmit" runat="server" Text="Atualizar" CssClass=".button normal success" />
                     </td>
                 </tr>
             </table>
         </div>
-        <div id="reportShow">
-            <rsweb:ReportViewer ID="ReportViewer1" runat="server"></rsweb:ReportViewer>
+        <div id="reportShow" style="padding-left:10px; color:black;">
+            <rsweb:ReportViewer ID="ReportViewerEvents" runat="server" Height="520px" Width="1000px"></rsweb:ReportViewer>
         </div>
     </form>
 </body>

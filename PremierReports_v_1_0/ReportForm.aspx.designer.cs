@@ -58,6 +58,15 @@ namespace PremierReports_v_1_0 {
         protected global::System.Web.UI.WebControls.Label lblDateFinR;
         
         /// <summary>
+        /// ddlHourFin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlHourFin;
+        
+        /// <summary>
         /// lblAddEventsR control.
         /// </summary>
         /// <remarks>
@@ -67,12 +76,39 @@ namespace PremierReports_v_1_0 {
         protected global::System.Web.UI.WebControls.Label lblAddEventsR;
         
         /// <summary>
-        /// ReportViewer1 control.
+        /// ddlEvents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEvents;
+        
+        /// <summary>
+        /// lsbEvents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lsbEvents;
+        
+        /// <summary>
+        /// bntReportSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bntReportSubmit;
+        
+        /// <summary>
+        /// ReportViewerEvents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewerEvents;
     }
 }
