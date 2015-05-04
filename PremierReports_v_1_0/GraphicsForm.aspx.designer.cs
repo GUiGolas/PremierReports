@@ -10,7 +10,7 @@
 namespace PremierReports_v_1_0 {
     
     
-    public partial class ReportForm {
+    public partial class GraphicsForm {
         
         /// <summary>
         /// form1 control.
@@ -22,15 +22,6 @@ namespace PremierReports_v_1_0 {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
         /// lblError control.
         /// </summary>
         /// <remarks>
@@ -40,13 +31,13 @@ namespace PremierReports_v_1_0 {
         protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
-        /// lblDateIniR control.
+        /// lblDateIniG control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDateIniR;
+        protected global::System.Web.UI.WebControls.Label lblDateIniG;
         
         /// <summary>
         /// inpDateIni control.
@@ -130,15 +121,6 @@ namespace PremierReports_v_1_0 {
         protected global::System.Web.UI.WebControls.Button bntClear;
         
         /// <summary>
-        /// chkOrderById control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chkOrderById;
-        
-        /// <summary>
         /// bntReportSubmit control.
         /// </summary>
         /// <remarks>
@@ -148,21 +130,12 @@ namespace PremierReports_v_1_0 {
         protected global::System.Web.UI.WebControls.Button bntReportSubmit;
         
         /// <summary>
-        /// ReportViewerEvents control.
+        /// ReportChart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewerEvents;
-        
-        /// <summary>
-        /// ObjectDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
+        protected global::System.Web.UI.DataVisualization.Charting.Chart ReportChart;
     }
 }

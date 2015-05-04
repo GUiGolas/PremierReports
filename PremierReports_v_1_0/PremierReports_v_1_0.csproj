@@ -40,6 +40,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -106,6 +107,7 @@
     <Content Include="compress\node_modules\node-minify\node_modules\uglify-js\README.md" />
     <Content Include="compress\node_modules\node-minify\package.json" />
     <Content Include="compress\node_modules\node-minify\Readme.md" />
+    <Content Include="css\iconFont.css" />
     <Content Include="docs\.htaccess" />
     <Content Include="docs\css\less\docs.less" />
     <Content Include="docs\fonts\iconFont.dev.svg" />
@@ -135,6 +137,7 @@
     <Content Include="fonts\OpenSans-Light.woff" />
     <Content Include="fonts\OpenSans.woff" />
     <Content Include="fonts\PTSerif-Caption.woff" />
+    <Content Include="GraphicsForm.aspx" />
     <Content Include="img\LogoPremierIco.ico" />
     <Content Include="img\LogoPremierIco_short.ico" />
     <Content Include="img\LogoPremierIco_short.png" />
@@ -192,6 +195,17 @@
     <Content Include="less\wizard.less" />
     <Content Include="main.aspx" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="dstEventReport.xsc">
+      <DependentUpon>dstEventReport.xsd</DependentUpon>
+    </Content>
+    <None Include="dstEventReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dstEventReport.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="dstEventReport.xss">
+      <DependentUpon>dstEventReport.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -554,10 +568,27 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassChartSql.cs" />
+    <Compile Include="ClassDBAuditSql.cs" />
+    <Compile Include="ClassDBhandler.cs" />
+    <Compile Include="ClassDBReportSql.cs" />
     <Compile Include="ClassLoginDbHandler.cs" />
+    <Compile Include="ConnectionClass.cs" />
+    <Compile Include="dstEventReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dstEventReport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ErrorConstants.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GraphicsForm.aspx.cs">
+      <DependentUpon>GraphicsForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GraphicsForm.aspx.designer.cs">
+      <DependentUpon>GraphicsForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -597,6 +628,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\index.aspx.en.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="rptEvent.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

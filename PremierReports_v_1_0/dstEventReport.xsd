@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dstEventReport" targetNamespace="http://tempuri.org/dstEventReport.xsd" xmlns:mstns="http://tempuri.org/dstEventReport.xsd" xmlns="http://tempuri.org/dstEventReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dstEventReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dstEventReport" msprop:Generator_UserDSName="dstEventReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dtEventsReport" msprop:Generator_TableClassName="dtEventsReportDataTable" msprop:Generator_TableVarName="tabledtEventsReport" msprop:Generator_TablePropName="dtEventsReport" msprop:Generator_RowDeletingName="dtEventsReportRowDeleting" msprop:Generator_RowChangingName="dtEventsReportRowChanging" msprop:Generator_RowEvHandlerName="dtEventsReportRowChangeEventHandler" msprop:Generator_RowDeletedName="dtEventsReportRowDeleted" msprop:Generator_UserTableName="dtEventsReport" msprop:Generator_RowChangedName="dtEventsReportRowChanged" msprop:Generator_RowEvArgName="dtEventsReportRowChangeEvent" msprop:Generator_RowClassName="dtEventsReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Start_Time" msprop:Generator_ColumnVarNameInTable="columnStart_Time" msprop:Generator_ColumnPropNameInRow="Start_Time" msprop:Generator_ColumnPropNameInTable="Start_TimeColumn" msprop:Generator_UserColumnName="Start_Time" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Priority" msprop:Generator_ColumnVarNameInTable="columnPriority" msprop:Generator_ColumnPropNameInRow="Priority" msprop:Generator_ColumnPropNameInTable="PriorityColumn" msprop:Generator_UserColumnName="Priority" type="xs:int" minOccurs="0" />
+              <xs:element name="Recorder_Name" msprop:Generator_ColumnVarNameInTable="columnRecorder_Name" msprop:Generator_ColumnPropNameInRow="Recorder_Name" msprop:Generator_ColumnPropNameInTable="Recorder_NameColumn" msprop:Generator_UserColumnName="Recorder_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="End_Time" msprop:Generator_ColumnVarNameInTable="columnEnd_Time" msprop:Generator_ColumnPropNameInRow="End_Time" msprop:Generator_ColumnPropNameInTable="End_TimeColumn" msprop:Generator_UserColumnName="End_Time" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

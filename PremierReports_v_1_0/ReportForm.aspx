@@ -50,7 +50,8 @@
 <body class="metro">
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
-        <div id="reportFilter" style="padding-left:50px;">
+        <asp:Label ID="lblError" runat="server" Text="[Error]" Visible="False" BorderColor="#33CC33" BorderStyle="Groove"></asp:Label>
+        <div id="reportFilter" style="padding-left: 50px;">
             <table id="tableFilter" style="color: white; font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif; background-color: transparent;">
                 <tr>
                     <td>
@@ -60,8 +61,8 @@
                                     <asp:Label ID="lblDateIniR" runat="server" Text="Data Inicial: *"></asp:Label>
                                 </td>
                                 <td>
-                                    <div class="input-control text" data-role="datepicker"  data-effect="slide" data-other-days="1">
-                                        <input type="text" readonly="readonly" id="inpDateIni"/>
+                                    <div class="input-control text" data-role="datepicker" data-effect="slide" data-other-days="1">
+                                        <input type="text" readonly="readonly" id="inpDateIni" runat="server" />
                                         <button class="btn-date" type="button"></button>
                                         <div class="calendar calendar-dropdown" style="position: absolute; display: none; max-width: 260px; z-index: 1000; top: 100%; left: 0px;">
                                             <table class="bordered">
@@ -160,7 +161,7 @@
                                         <asp:ListItem>22:00</asp:ListItem>
                                         <asp:ListItem>23:00</asp:ListItem>
                                     </asp:DropDownList>
-                                    
+
                                 </td>
                             </tr>
                             <tr>
@@ -168,8 +169,8 @@
                                     <asp:Label ID="lblDateFinR" runat="server" Text="Data Final: *"></asp:Label>
                                 </td>
                                 <td>
-                                    <div class="input-control text" data-role="datepicker"  data-effect="slide" data-other-days="1">
-                                        <input type="text" readonly="readonly" id="inpDateFin">
+                                    <div class="input-control text" data-role="datepicker" data-effect="slide" data-other-days="1">
+                                        <input type="text" readonly="readonly" id="inpDateFin" runat="server" />
                                         <button class="btn-date" type="button"></button>
                                         <div class="calendar calendar-dropdown" style="position: absolute; display: none; max-width: 260px; z-index: 1000; top: 100%; left: 0px;">
                                             <table class="bordered">
@@ -235,14 +236,15 @@
                                                         <td class="text-center day"><a href="#">29</a></td>
                                                         <td class="text-center day"><a href="#">30</a></td>
                                                     </tr>
+
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
-                                    
+
                                 </td>
                                 <td>
-                                     <asp:DropDownList ID="ddlHourFin" runat="server">
+                                    <asp:DropDownList ID="ddlHourFin" runat="server">
                                         <asp:ListItem Selected="True">00:00</asp:ListItem>
                                         <asp:ListItem>01:00</asp:ListItem>
                                         <asp:ListItem>02:00</asp:ListItem>
@@ -268,39 +270,55 @@
                                         <asp:ListItem>22:00</asp:ListItem>
                                         <asp:ListItem>23:00</asp:ListItem>
                                     </asp:DropDownList>
-                                    
+
                                 </td>
                             </tr>
 
                         </table>
                     </td>
                     <td>
-                        <table style="background-color: transparent;" >
+                        <table style="background-color: transparent;">
                             <tr>
                                 <td>
                                     <asp:Label ID="lblAddEventsR" runat="server" Text="Eventos:"></asp:Label>
                                 </td>
-                                
+
                                 <td>
-                                    <asp:DropDownList ID="ddlEvents" runat="server"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlEvents" runat="server" OnSelectedIndexChanged="ddlEvents_SelectedIndexChanged" AutoPostBack="True" Width="200px"></asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>
-                                    <asp:ListBox ID="lsbEvents" runat="server"></asp:ListBox>
+                                    <asp:ListBox ID="lsbEvents" runat="server" BackColor="White" Enabled="False" Height="55px" SelectionMode="Multiple" Width="200px"></asp:ListBox>
+                                    <br />
+
+                                    <asp:Button ID="bntClear" runat="server" Text="Limpar" CssClass=".button small" OnClick="bntClear_Click" />
+                                    <%--<asp:CheckBox ID="chkOrderById" runat="server" Text="Id" TextAlign="Left" />--%>
+                                    <label class="input-control checkbox small-check">
+                                        <input id="chkOrderById" type="checkbox" runat="server"/>
+                                        <span class="check"></span>
+                                        <span class="caption">Ordernar por Id</span>
+                                    </label>
                                 </td>
                             </tr>
                         </table>
                     </td>
                     <td>
-                        <asp:Button ID="bntReportSubmit" runat="server" Text="Atualizar" CssClass=".button normal success" />
+                        <asp:Button ID="bntReportSubmit" runat="server" Text="Atualizar" CssClass=".button normal success" OnClick="bntReportSubmit_Click" />
                     </td>
                 </tr>
             </table>
         </div>
-        <div id="reportShow" style="padding-left:10px; color:black;">
-            <rsweb:ReportViewer ID="ReportViewerEvents" runat="server" Height="520px" Width="1000px"></rsweb:ReportViewer>
+        <div id="reportShow" style="padding-left: 10px; color: black;">
+            <rsweb:ReportViewer ID="ReportViewerEvents" runat="server" Height="520px" Width="1000px" BackColor="White" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
+                <LocalReport ReportPath="rptEvent.rdlc">
+                    <DataSources>
+                        <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="dsSource" />
+                    </DataSources>
+                </LocalReport>
+            </rsweb:ReportViewer>
+            <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" TypeName="PremierReports_v_1_0.dstEventReportTableAdapters."></asp:ObjectDataSource>
         </div>
     </form>
 </body>
