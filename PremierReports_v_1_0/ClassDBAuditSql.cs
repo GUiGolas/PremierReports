@@ -54,6 +54,11 @@ public class ClassDBAuditSql
         
     }
 
+    public ClassDBAuditSql()
+    {
+
+    }
+
     #endregion
 
     #region Functions
@@ -62,7 +67,7 @@ public class ClassDBAuditSql
     {
         //Build Query
         StringBuilder Query = new StringBuilder();
-        Query.AppendLine("SELECT AuditTrail.AuditTrailId, AuditTrail.LocalTime,  AuditTrail.UserName, AuditTrail.EventCode, AuditTrail.EventDescription,AuditTrail.EventStatus, AuditTrail.EventDescription, AuditTrail.Object, AuditTrail.RecorderName, AuditTrail.RecorderAddress ");
+        Query.AppendLine("SELECT AuditTrail.AuditTrailId, AuditTrail.LocalTime,  AuditTrail.UserName, AuditTrail.EventCode, AuditTrail.EventDescription,AuditTrail.EventStatus, AuditTrail.Object, AuditTrail.RecorderName, AuditTrail.RecorderAddress ");
         Query.AppendLine("FROM	AuditTrail ");
         Query.Append("WHERE AuditTrail.UserName IN ( ");
         Query.Append(names);
@@ -100,6 +105,22 @@ public class ClassDBAuditSql
         }
 
     }//end Execute Query
+
+    /// <summary>
+    /// Fill the datatable and the dataset with all user names available
+    /// </summary>
+    public void AvailableUserNames()
+    {
+        //Build Query
+        StringBuilder Query = new StringBuilder();
+        Query.AppendLine("SELECT DISTINCT AuditTrail.UserName ");
+        Query.AppendLine("FROM	AuditTrail ");
+        Query.AppendLine("ORDER BY 1 ");
+
+        //Execute Query
+        ExecuteQuery(Query.ToString());   
+
+    }
     #endregion
 
 }

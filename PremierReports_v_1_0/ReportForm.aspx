@@ -311,7 +311,7 @@
             </table>
         </div>
         <div id="reportShow" style="padding-left: 10px; color: black;">
-            <rsweb:ReportViewer ID="ReportViewerEvents" runat="server" Height="520px" Width="1000px" BackColor="White" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
+            <rsweb:ReportViewer ID="ReportViewerEvents" runat="server" Height="490px" Width="995px" BackColor="White" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
                 <LocalReport ReportPath="rptEvent.rdlc">
                     <DataSources>
                         <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="dsSource" />

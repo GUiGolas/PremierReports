@@ -71,7 +71,7 @@ public class ClassChartSql
             case 'd': //Aggregate per day
                 //Build the sql 
                 Query.Clear();
-                Query.AppendLine("SELECT AlarmConfigId, DAY(LocalStartTime)As 'TIME', count(Day(LocalStartTime))As 'QTD' ");
+                Query.AppendLine("SELECT AlarmConfigId As 'ID', DAY(LocalStartTime)As 'TIME', count(Day(LocalStartTime))As 'QTD' ");
                 Query.AppendLine("FROM [DvmsData].[dbo].[AlarmEvent] ");
                 Query.Append("WHERE AlarmConfigId IN (");
                 Query.Append(id);
@@ -88,7 +88,7 @@ public class ClassChartSql
             case 'm': //Aggregate per month
                 //Build the sql 
                 Query.Clear();
-                Query.AppendLine("SELECT AlarmConfigId, MONTH(LocalStartTime)As 'TIME', count(MONTH(LocalStartTime))As 'QTD' ");
+                Query.AppendLine("SELECT AlarmConfigId As 'ID' , MONTH(LocalStartTime)As 'TIME', count(MONTH(LocalStartTime))As 'QTD' ");
                 Query.AppendLine("FROM [DvmsData].[dbo].[AlarmEvent] ");
                 Query.Append("WHERE AlarmConfigId IN (");
                 Query.Append(id);
@@ -105,7 +105,7 @@ public class ClassChartSql
             case 'h': //Aggregate per hour
                 //Build the sql 
                 Query.Clear();
-                Query.AppendLine("SELECT AlarmConfigId,CONVERT(VARCHAR(13),LocalStartTime,120)+':00:00.000' AS TIME,COUNT(*)AS QTD ");
+                Query.AppendLine("SELECT AlarmConfigId As 'ID' ,CONVERT(VARCHAR(13),LocalStartTime,120)+':00:00.000' AS TIME,COUNT(*)AS QTD ");
                 Query.AppendLine("FROM AlarmEvent ");
                 Query.Append("WHERE AlarmConfigId IN( ");
                 Query.Append(id);

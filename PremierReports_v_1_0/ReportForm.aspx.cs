@@ -59,8 +59,9 @@ namespace PremierReports_v_1_0
                     }
                     catch (Exception ex)
                     {
-
-                        throw;
+                        lblError.Text = ex.Message.ToString();
+                        lblError.Visible = true;
+                        //throw;
                     }
                 }
             }

@@ -59,6 +59,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AuditingForm.aspx" />
     <Content Include="compress\node_modules\node-minify\.npmignore" />
     <Content Include="compress\node_modules\node-minify\LICENSE" />
     <Content Include="compress\node_modules\node-minify\node_modules\.bin\sqwish" />
@@ -197,6 +198,17 @@
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="dstEventReport.xsc">
       <DependentUpon>dstEventReport.xsd</DependentUpon>
+    </Content>
+    <Content Include="dstAuditReport.xsc">
+      <DependentUpon>dstAuditReport.xsd</DependentUpon>
+    </Content>
+    <None Include="dstAuditReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dstAuditReport.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="dstAuditReport.xss">
+      <DependentUpon>dstAuditReport.xsd</DependentUpon>
     </Content>
     <None Include="dstEventReport.xsd">
       <SubType>Designer</SubType>
@@ -563,17 +575,30 @@
     <Content Include="min\metro-bootstrap.min.css" />
     <Content Include="min\metro.min.js" />
     <Content Include="ReportForm.aspx" />
+    <Content Include="Settings.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuditingForm.aspx.cs">
+      <DependentUpon>AuditingForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuditingForm.aspx.designer.cs">
+      <DependentUpon>AuditingForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClassChartSql.cs" />
     <Compile Include="ClassDBAuditSql.cs" />
     <Compile Include="ClassDBhandler.cs" />
     <Compile Include="ClassDBReportSql.cs" />
     <Compile Include="ClassLoginDbHandler.cs" />
     <Compile Include="ConnectionClass.cs" />
+    <Compile Include="dstAuditReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dstAuditReport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dstEventReport.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -616,6 +641,13 @@
     <Compile Include="ReportForm.aspx.designer.cs">
       <DependentUpon>ReportForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -630,6 +662,7 @@
     <Content Include="App_LocalResources\index.aspx.en.resx" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="rptAudit.rdlc" />
     <EmbeddedResource Include="rptEvent.rdlc" />
   </ItemGroup>
   <PropertyGroup>
