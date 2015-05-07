@@ -62,7 +62,7 @@ public class ClassLoginDbHandler
 
     }
 
-    public bool ChangePassword(string _userName, string _oldHash, string _newHash)
+    public bool ChangePassword(string _userName, string _newUserName, string _oldHash, string _newHash)
     {
         if (!CheckUser(_userName, _oldHash)) return false;
         else
@@ -73,9 +73,10 @@ public class ClassLoginDbHandler
                 using (SqlCommand cmd = con.CreateCommand())
                 {
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "UPDATE Table SET Password = @password where username = @uname";
+                    cmd.CommandText = "UPDATE Table SET Password = @password, username = @newusername where username = @uname";
                     cmd.Parameters.Add(new SqlParameter("@uname", _userName));
                     cmd.Parameters.Add(new SqlParameter("@password", _newHash));
+                    cmd.Parameters.Add(new SqlParameter("@newusername", _newUserName));
 
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {

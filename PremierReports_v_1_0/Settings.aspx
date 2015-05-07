@@ -128,10 +128,13 @@
                     </tr>
                     <tr>
                          <td>
-                            <button id="btnSavePassword" class="image-button bg-darkGreen fg-white image-left"/> Salvar <i class="icon-floppy on-left bg-green fg-white"></i>
+                            <asp:button id="btnSavePassword" class="image-button bg-darkGreen fg-white image-left" OnClick="btnSavePassword_Click"/> Salvar <i class="icon-floppy on-left bg-green fg-white" ></i>
                         </td>
                     </tr>
                 </table>
+                <div>
+                    <asp:Label Text="[Error]" ID="lblError" Visible="false"  runat="server" />
+                </div>
             </div>
             <br />
             <hr  style="width:1280px;"/>
@@ -174,17 +177,17 @@
                             <asp:TextBox runat="server" ID="txtDbPort" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtPortSeparator" Text="," />
+                            <asp:TextBox runat="server" ID="txtPortSeparator" Text="," MaxLength="1" />
                         </td>
-                    </tr>S
+                    </tr>
                     
                 </table>
-              
+             
                     <button id="btnSaveDbSettings" class="image-button bg-darkGreen fg-white image-left" /> Salvar <i class="icon-floppy on-left bg-green fg-white"></i>
                
-                    <button id="btnFactory" class="image-button bg-darkOrange fg-white image-left" /> Configurações de Fábrica <i class="icon-redo on-left  bg-darkOrange fg-white" ></i>
-               
-                
+                    <button id="btnFactory" class="image-button bg-darkOrange fg-white image-left"/> Configurações de Fábrica <i class="icon-redo on-left  bg-orange fg-white" ></i>
+                <br />
+                <asp:Label Text="[Error]" ID="lblErrorDb" Visible="false" runat="server" />
             </div>
         </div>
 
