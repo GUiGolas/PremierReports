@@ -43,6 +43,11 @@
             background-color: #0F3B48;
             color: white;
         }
+         .labelError{
+            background-color:#870303;
+            color:white;
+            
+        }
     </style>
 
     <title></title>
@@ -50,7 +55,7 @@
 <body class="metro">
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
-        <asp:Label ID="lblError" runat="server" Text="[Error]" Visible="False" BorderColor="#33CC33" BorderStyle="Groove"></asp:Label>
+        <asp:Label ID="lblError" runat="server" Text="[Error]" Visible="False" CssClass="labelError" ></asp:Label>
         <div id="reportFilter" style="padding-left: 50px;">
             <table id="tableFilter" style="color: white; font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif; background-color: transparent;">
                 <tr>
@@ -311,7 +316,7 @@
             </table>
         </div>
         <div id="reportShow" style="padding-left: 10px; color: black;">
-            <rsweb:ReportViewer ID="ReportViewerEvents" runat="server" Height="490px" Width="995px" BackColor="White" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
+            <rsweb:ReportViewer ID="ReportViewerEvents" runat="server" Height="490px" Width="995px" BackColor="White" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Visible="False">
                 <LocalReport ReportPath="rptEvent.rdlc">
                     <DataSources>
                         <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="dsSource" />

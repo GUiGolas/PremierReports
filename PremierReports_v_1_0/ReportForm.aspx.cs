@@ -177,6 +177,7 @@ namespace PremierReports_v_1_0
 
                 //fill the report
                 ReportViewerEvents.LocalReport.DataSources.Clear();
+                ReportViewerEvents.Visible = true;
                 ReportDataSource rds = new ReportDataSource("dsSource", (DataTable)dt);
                 ReportViewerEvents.LocalReport.DataSources.Add(rds);
                 ReportViewerEvents.LocalReport.Refresh();

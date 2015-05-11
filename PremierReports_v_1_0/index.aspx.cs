@@ -19,10 +19,12 @@ namespace PremierReports_v_1_0
             if (CultureInfo.CurrentCulture.DisplayName.ToString() != "Português (Brasil)")
             {
                 langNumber = 1;
+                ddlLanguage.SelectedIndex = 1;
             }
             else
             {
                 langNumber = 0;
+                ddlLanguage.SelectedIndex = 0;
             }
         }
 

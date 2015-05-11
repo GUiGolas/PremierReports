@@ -108,6 +108,10 @@
     <Content Include="compress\node_modules\node-minify\node_modules\uglify-js\README.md" />
     <Content Include="compress\node_modules\node-minify\package.json" />
     <Content Include="compress\node_modules\node-minify\Readme.md" />
+    <Content Include="config\config.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="css\iconFont.css" />
     <Content Include="docs\.htaccess" />
     <Content Include="docs\css\less\docs.less" />
@@ -145,6 +149,7 @@
     <Content Include="img\LogosPremierHoriz.BOX.azul.jpg" />
     <Content Include="img\LogosPremierHoriz.BOX.azul_edit.jpg" />
     <Content Include="img\LogosPremierHoriz.BOX.azul_edit.png" />
+    <Content Include="img\Save.png" />
     <Content Include="index.aspx" />
     <Content Include="js\README.md" />
     <Content Include="less\accordion.less" />

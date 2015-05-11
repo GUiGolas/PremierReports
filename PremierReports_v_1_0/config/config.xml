@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<!--XML FILE CONTAINS ALL THE CONFIGURATIONS THAT CAN BE MODIFIED BY THE USER-->
+<report>
+  <database>
+    <default>
+      <server>SQLEXPRESS</server>
+      <name>DvmsData</name>
+      <address>PREMIER-MIRASYS\SQLEXPRESS</address>
+      <port></port>
+      <portseparator>,</portseparator>
+      <username></username>
+      <password></password>
+      <connectionstring>Data Source=PREMIER-MIRASYS\SQLEXPRESS;Initial Catalog=DvmsData;Integrated Security=True</connectionstring>
+    
+    </default>
+    <userdb>
+      <server>SQLEXPRESS</server>
+      <name>DvmsData</name>
+      <address>PREMIER-MIRASYS\SQLEXPRESS</address>
+      <port></port>
+      <portseparator>,</portseparator>
+      <username></username>
+      <password></password>
+      <connectionstring></connectionstring>
+    </userdb>
+  </database>
+</report>

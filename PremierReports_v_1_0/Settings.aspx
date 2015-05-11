@@ -15,6 +15,9 @@
     <!--<link href="css/metro-bootstrap-responsive.css" rel="stylesheet">-->
     <link href="css/iconFont.css" rel="stylesheet" />
 
+    <!-- Custom style sheet -->
+    <link href="css/custom.css" rel="stylesheet" />
+
     <!-- Load JavaScript Libraries -->
     <script src="js/jquery/jquery.min.js"></script>
     <script src="js/jquery/jquery.widget.min.js"></script>
@@ -30,6 +33,7 @@
     <script src="js/metro-tab-control.js"></script>
 
 
+
     <title>Premier Reports - Settings</title>
 
     <style>
@@ -42,8 +46,25 @@
             color: white;
         }
 
-        .h1 {
-            color: white;
+        .btnSavePassword {
+            background-color: green !important;
+            padding-left: 30px !important;
+            background:left no-repeat url(img/Save.png);
+            background-size:25px;
+            color:white !important;
+        }
+
+        .btnFactory {
+            background-color: #f85501 !important;
+            padding-left: 30px !important;
+            background:left no-repeat url(img/redo.png);
+            background-size:25px;
+            color:white !important;
+        }
+         .labelError{
+            background-color:#870303;
+            color:white;
+            
         }
     </style>
 
@@ -54,7 +75,7 @@
             <nav class="navigation-bar" style="background-color: #1B5465">
 
                 <nav class="navigation-bar-content">
-                    <button class="element image-button image-left place-left" type="button"  onclick="location.href='main.aspx'" >
+                    <button class="element image-button image-left place-left" type="button" onclick="location.href='main.aspx'">
                         Premier
             <img src="img/LogoPremierIco_short.ico" />
                     </button>
@@ -78,7 +99,7 @@
 
         <br />
         <br />
-        <div id="content" style="padding-left:50px;">
+        <div id="content" style="padding-left: 50px;">
             <div id="PasswordSettings">
                 <h1 id="lblChangePassword" style="color: white">Trocar Senha:</h1>
                 <br />
@@ -120,31 +141,33 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label Text="Confirmação de Senha: " ID="lblConfirmPassword" runat="server" />
+                            <asp:Label Text="Confirmação de Senha:   " ID="lblConfirmPassword" runat="server" />
                         </td>
                         <td>
                             <asp:TextBox runat="server" ID="txtConfirmPassword" TextMode="Password" />
                         </td>
                     </tr>
                     <tr>
-                         <td>
-                            <asp:button id="btnSavePassword" class="image-button bg-darkGreen fg-white image-left" OnClick="btnSavePassword_Click"/> Salvar <i class="icon-floppy on-left bg-green fg-white" ></i>
+                        <td>
+                            <asp:Button Text="Salvar" ID="btnSavePassword" OnClick="btnSavePassword_Click" CssClass="btnSavePassword" runat="server" />
+
                         </td>
                     </tr>
                 </table>
                 <div>
-                    <asp:Label Text="[Error]" ID="lblError" Visible="false"  runat="server" />
+                    <asp:Label Text="[Error]" ID="lblError" CssClass="labelError" Visible="false" runat="server" />
                 </div>
             </div>
             <br />
-            <hr  style="width:1280px;"/>
+            <hr style="width: 1280px;" />
             <br />
             <br />
 
             <div id="databaseSettings">
                 <h1 id="lblChangeDbSettings" style="color: white">Configurações do Banco de Dados: </h1>
                 <br />
-
+                <asp:Label Text="[Error]" ID="lblErrorDb" CssClass="labelError" Visible="false" runat="server" />
+                <br />
                 <table id="tableDbSettings" style="background-color: transparent" runat="server">
                     <tr>
                         <td>
@@ -180,14 +203,30 @@
                             <asp:TextBox runat="server" ID="txtPortSeparator" Text="," MaxLength="1" />
                         </td>
                     </tr>
-                    
+                    <tr>
+                        <td>
+                            <asp:Label Text="Usuário: " ID="lbldbUserName" runat="server" />
+                        </td>
+                        <td>
+                            <asp:Label Text="Senha: " ID="lbldbPassword" runat="server" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:TextBox runat="server" ID="txtdbUserName" />
+                        </td>
+                        <td>
+                            <asp:TextBox runat="server" ID="txtdbPassword" TextMode="Password" />
+                        </td>
+                    </tr>
                 </table>
-             
-                    <button id="btnSaveDbSettings" class="image-button bg-darkGreen fg-white image-left" /> Salvar <i class="icon-floppy on-left bg-green fg-white"></i>
-               
-                    <button id="btnFactory" class="image-button bg-darkOrange fg-white image-left"/> Configurações de Fábrica <i class="icon-redo on-left  bg-orange fg-white" ></i>
                 <br />
-                <asp:Label Text="[Error]" ID="lblErrorDb" Visible="false" runat="server" />
+                <asp:Button Text="Salvar" ID="btnSaveDbSettings" CssClass="btnSavePassword" runat="server" />
+
+                <asp:Button Text="Configurações de fábrica" ID="btnFactoryReset" CssClass="btnFactory" runat="server" />
+
+                <br />
+
             </div>
         </div>
 

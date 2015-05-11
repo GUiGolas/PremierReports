@@ -112,6 +112,15 @@ namespace PremierReports_v_1_0 {
         protected global::System.Web.UI.WebControls.TextBox txtConfirmPassword;
         
         /// <summary>
+        /// btnSavePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSavePassword;
+        
+        /// <summary>
         /// lblError control.
         /// </summary>
         /// <remarks>
@@ -119,6 +128,15 @@ namespace PremierReports_v_1_0 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
+        
+        /// <summary>
+        /// lblErrorDb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrorDb;
         
         /// <summary>
         /// tableDbSettings control.
@@ -220,12 +238,57 @@ namespace PremierReports_v_1_0 {
         protected global::System.Web.UI.WebControls.TextBox txtPortSeparator;
         
         /// <summary>
-        /// lblErrorDb control.
+        /// lbldbUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblErrorDb;
+        protected global::System.Web.UI.WebControls.Label lbldbUserName;
+        
+        /// <summary>
+        /// lbldbPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbldbPassword;
+        
+        /// <summary>
+        /// txtdbUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtdbUserName;
+        
+        /// <summary>
+        /// txtdbPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtdbPassword;
+        
+        /// <summary>
+        /// btnSaveDbSettings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveDbSettings;
+        
+        /// <summary>
+        /// btnFactoryReset control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFactoryReset;
     }
 }

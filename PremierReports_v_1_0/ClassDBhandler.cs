@@ -5,6 +5,8 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.IO;
+using System.Xml;
 
 /// <summary>
 /// Class to handler the connection with the DataBase. Only this class can access the DB. A sql command query is required to the contructor
@@ -19,6 +21,8 @@ public class ClassDBhandler:IDisposable
     private DataSet ds;
     private DataTable dt;
     bool disposed;
+    //string configFilePath = @"E:\Visual Studio\Projects\Premier\PremierReports_v_1_0\config\config.xml";
+    string configFilePath =  Environment.GetFolderPath(Environment.SpecialFolder.Personal) + @"\Premier Reports\config\config.xml";
     #endregion
 
     #region Properties
@@ -54,7 +58,14 @@ public class ClassDBhandler:IDisposable
         try
         {
             //get the connectionString from web.config
-            this.connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MirasysDB"].ConnectionString;
+            //this.connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["MirasysDB"].ConnectionString;
+
+            // get the configuration strings from config file.
+
+            // - first check the user settings
+            if (getUserDb()) ;
+            else getDefaultDB();
+
         }
         catch (Exception ex)
         {
@@ -63,7 +74,172 @@ public class ClassDBhandler:IDisposable
         }
 
 
-    } //end of constructor 
+    }
+
+    private bool getDefaultDB()
+    {
+        try
+        {
+            // check if the file exists
+            if (File.Exists(configFilePath))
+            {
+                //Open the file
+
+                XmlDocument doc = new XmlDocument();
+                doc.Load(configFilePath); // loading file
+                XmlNodeList xnList = doc.GetElementsByTagName("default");
+                string conString = xnList[0]["connectionstring"].InnerText;
+                if (conString == String.Empty || conString.Length < 2)
+                {
+                    string _address = xnList[0]["address"].InnerText;
+                    string _name = xnList[0]["name"].InnerText;
+                    string _server = xnList[0]["server"].InnerText;
+                    string _port = xnList[0]["port"].InnerText;
+                    string _portseparator = xnList[0]["portseparator"].InnerText;
+                    string _username = xnList[0]["username"].InnerText;
+                    string _password = xnList[0]["password"].InnerText;
+
+
+                    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                    builder.DataSource = _address;
+                    builder.InitialCatalog = _name;
+
+                    if (_username == string.Empty || _username.Length < 2)
+                    {
+                        builder.IntegratedSecurity = true;
+                    }
+                    else
+                    {
+                        builder.UserID = _username;
+                        builder.Password = _password;
+                    }
+
+
+
+                    //string commandString;
+                    //if (_username == string.Empty || _username.Length < 2)
+                    //{
+                    //    commandString =  "Integrated Security=true;";
+                    //}
+                    //else
+                    //{
+                    //    commandString = "user id=" + _username + "; password =" + _password + ";";
+                    //}
+
+                    //commandString = commandString + " server=" + _address +"; database = " + _name +  "; connection timeout=10";
+
+                    using (SqlConnection conn = new SqlConnection(builder.ConnectionString))
+                    {
+                        conn.Open(); // throws if invalid
+                    }
+                    this.connectionString = builder.ConnectionString;
+
+                    return true;
+                }
+                else
+                {
+                    this.connectionString = conString;
+                    using (SqlConnection conn = new SqlConnection(this.connectionString))
+                    {
+                        conn.Open(); // throws if invalid
+                    }
+                    return true;
+                }
+            }
+            else
+            {
+                throw new Exception("Error: missing configuration file, or file not acessible.");
+            }
+        }
+        catch (Exception ex)
+        {
+
+            throw;
+        }
+    }
+
+    private bool getUserDb()
+    {
+        try
+        {
+            // check if the file exists
+            if (File.Exists(configFilePath))
+            {
+                //Open the file
+
+                XmlDocument doc = new XmlDocument();
+                doc.Load(configFilePath); // loading file
+                XmlNodeList xnList = doc.GetElementsByTagName("userdb");
+                string conString = xnList[0]["connectionstring"].InnerText;
+                if (conString == String.Empty || conString.Length < 2)
+                {
+                    string _address = xnList[0]["address"].InnerText;
+                    string _name = xnList[0]["name"].InnerText;
+                    string _server = xnList[0]["server"].InnerText;
+                    string _port = xnList[0]["port"].InnerText;
+                    string _portseparator = xnList[0]["portseparator"].InnerText;
+                    string _username = xnList[0]["username"].InnerText;
+                    string _password = xnList[0]["password"].InnerText;
+
+
+                    SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                    builder.DataSource = _address;
+                    builder.InitialCatalog = _name;
+
+                    if (_username == string.Empty || _username.Length < 2)
+                    {
+                        builder.IntegratedSecurity = true;
+                    }
+                    else
+                    {
+                        builder.UserID = _username;
+                        builder.Password = _password;
+                    }
+
+
+                    
+                    //string commandString;
+                    //if (_username == string.Empty || _username.Length < 2)
+                    //{
+                    //    commandString =  "Integrated Security=true;";
+                    //}
+                    //else
+                    //{
+                    //    commandString = "user id=" + _username + "; password =" + _password + ";";
+                    //}
+
+                    //commandString = commandString + " server=" + _address +"; database = " + _name +  "; connection timeout=10";
+
+                    using (SqlConnection conn = new SqlConnection(builder.ConnectionString))
+                    {
+                        conn.Open(); // throws if invalid
+                    }
+                    this.connectionString = builder.ConnectionString;
+
+                    return true;
+                }
+                else
+                {
+                    this.connectionString = conString;
+                    using (SqlConnection conn = new SqlConnection(this.connectionString))
+                    {
+                        conn.Open(); // throws if invalid
+                    }
+                    return true;
+                }
+            }
+            else
+            {
+                throw new Exception("Error: missing configuration file, or file not acessible.");
+            }
+        }
+        catch (Exception ex )
+        {
+            return false;
+            //throw;
+        }
+        
+    } 
     #endregion
 
     #region Functions
