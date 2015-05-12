@@ -39,7 +39,7 @@ namespace PremierReports_v_1_0
                     throw new Exception(ErrorConstants.getErrorMessage("userNameMinLength", langNumber));
                 }
                 // Validade the password field
-                if (txtUserName.Text.Trim().Length < 4)
+                if ( txtPassword.Text.Trim().Length < 4)
                 {
                     throw new Exception(ErrorConstants.getErrorMessage("passwordMinLength", langNumber));
                 }
@@ -57,7 +57,9 @@ namespace PremierReports_v_1_0
                 FormsAuthentication.SetAuthCookie(loginHandler.userName, false);
 
                 //Login successful lets put him to requested page
-                string returnUrl = Request.QueryString["ReturnUrl"] as string;
+                //string returnUrl = Request.QueryString["ReturnUrl"] as string;
+
+                string returnUrl = "main.aspx";
 
                 if (returnUrl != null)
                 {
@@ -66,7 +68,7 @@ namespace PremierReports_v_1_0
                 else
                 {
                     //no return URL specified so lets kick him to home page
-                    Response.Redirect("Login.aspx");
+                    Response.Redirect("index.aspx");
                 }
 
             }

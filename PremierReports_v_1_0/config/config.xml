@@ -23,5 +23,16 @@
       <password></password>
       <connectionstring></connectionstring>
     </userdb>
+
+    <logindb>
+      <server>SQLEXPRESS</server>
+      <name>DvmsData</name>
+      <address>PREMIER-MIRASYS\SQLEXPRESS</address>
+      <port></port>
+      <portseparator>,</portseparator>
+      <username></username>
+      <password></password>
+      <connectionstring>Data Source=(LocalDB)\v11.0;AttachDbFilename="E:\Visual Studio\Projects\Premier\PremierReports_v_1_0\App_Data\dbPremierReports.mdf";Integrated Security=True</connectionstring>
+    </logindb>
   </database>
 </report>

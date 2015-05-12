@@ -121,6 +121,24 @@ namespace PremierReports_v_1_0 {
         protected global::System.Web.UI.WebControls.Button bntClear;
         
         /// <summary>
+        /// lblChartType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChartType;
+        
+        /// <summary>
+        /// ddlChartType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlChartType;
+        
+        /// <summary>
         /// bntReportSubmit control.
         /// </summary>
         /// <remarks>

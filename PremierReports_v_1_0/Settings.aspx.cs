@@ -28,6 +28,26 @@ namespace PremierReports_v_1_0
             }
         }
 
+        protected void Logoff_Click(object sender, EventArgs e)
+        {
+            LogOut();
+        }
+        private void LogOut()
+        {
+
+
+            // clear the data from session
+            if (Session["user"].ToString().Length > 0)
+            {
+                Session["user"] = string.Empty;
+                Session["password"] = string.Empty;
+                Session["logged"] = false;
+            }
+
+            FormsAuthentication.SignOut();
+            FormsAuthentication.RedirectToLoginPage();
+        }
+
         protected void btnSavePassword_Click(object sender, EventArgs e)
         {
             // Check all fields

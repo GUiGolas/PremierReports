@@ -90,7 +90,9 @@
                             <li><a href="settings.aspx">
                                 <hr />
                             </a></li>
-                            <li><a href="#">LogOff</a></li>
+                            <li>
+                                <asp:LinkButton Text="LogOff"  OnClick="Logoff_Click" runat="server" /></li>
+                            <%--<li><a href="#" runat="server" onclick="Logoff_Click">LogOff</a></li>--%>
                         </ul>
                     </div>
                 </nav>
