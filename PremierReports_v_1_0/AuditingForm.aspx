@@ -141,8 +141,8 @@
                                     </div>
 
                                 </td>
-                                <td>
-                                    <asp:DropDownList ID="ddlHourIni" runat="server">
+                                <td style="padding-bottom: 11px; font-family:'Segoe UI'">
+                                    <asp:DropDownList ID="ddlHourIni" Height="33px"  runat="server">
                                         <asp:ListItem Selected="True">00:00</asp:ListItem>
                                         <asp:ListItem>01:00</asp:ListItem>
                                         <asp:ListItem>02:00</asp:ListItem>
@@ -250,8 +250,8 @@
                                     </div>
 
                                 </td>
-                                <td>
-                                    <asp:DropDownList ID="ddlHourFin" runat="server">
+                                <td style="padding-bottom: 12px;"">
+                                    <asp:DropDownList ID="ddlHourFin" Height="33px" runat="server">
                                         <asp:ListItem Selected="True">00:00</asp:ListItem>
                                         <asp:ListItem>01:00</asp:ListItem>
                                         <asp:ListItem>02:00</asp:ListItem>
@@ -311,7 +311,7 @@
                             </tr>
                         </table>
                     </td>
-                    <td>
+                    <td style="padding-top:20px;">
                         <asp:Button ID="bntReportSubmit" runat="server" Text="Atualizar" CssClass=".button normal success" OnClick="bntReportSubmit_Click" />
                     </td>
                 </tr>
