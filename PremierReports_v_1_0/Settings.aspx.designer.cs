@@ -238,6 +238,24 @@ namespace PremierReports_v_1_0 {
         protected global::System.Web.UI.WebControls.TextBox txtPortSeparator;
         
         /// <summary>
+        /// chkConnectionString control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox chkConnectionString;
+        
+        /// <summary>
+        /// txtConString control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtConString;
+        
+        /// <summary>
         /// lbldbUserName control.
         /// </summary>
         /// <remarks>

@@ -49,24 +49,60 @@
         .btnSavePassword {
             background-color: green !important;
             padding-left: 30px !important;
-            background:left no-repeat url(img/Save.png);
-            background-size:25px;
-            color:white !important;
+            background: left no-repeat url(img/Save.png);
+            background-size: 25px;
+            color: white !important;
         }
 
         .btnFactory {
             background-color: #f85501 !important;
             padding-left: 30px !important;
-            background:left no-repeat url(img/redo.png);
-            background-size:25px;
-            color:white !important;
+            background: left no-repeat url(img/redo.png);
+            background-size: 25px;
+            color: white !important;
         }
-         .labelError{
-            background-color:#870303;
-            color:white;
-            
+
+        .labelError {
+            background-color: #870303;
+            color: white;
+        }
+
+        .customCheckBox {
+            position: relative !important;
+            vertical-align: middle !important;
+            bottom: 1px !important;
+        }
+
+        .textBox {
+            background-color: #cccccc;
+            border: none;
+            font-family: 'Segoe UI';
         }
     </style>
+
+    <script type="text/javascript">
+
+        function enableConnectionString() {
+
+            var checked = document.getElementById("chkConnectionString").checked;
+            if (checked) {
+               <%--document.getElementById('<%= txtConnectionString.ClientID %>' ).enabled = true;--%>
+                <%-- document.getElementById('<%= txtConnectionString.ClientID %>').style.display = 'inline';--%>
+                document.getElementById("inpConnectionString").style.display = 'inline';
+                document.getElementById("inpConnectionString").style.visibility = 'visible';
+           }
+
+           else {
+                <%--document.getElementById('<%= txtConnectionString.ClientID %>' ).enabled = true;--%>
+<%--                document.getElementById('<%= txtConnectionString.ClientID %>').style.display = 'none';--%>
+                document.getElementById("inpConnectionString").style.display = 'none';
+                document.getElementById("inpConnectionString").style.visibility = 'hidden';
+            }
+            
+            
+        }
+
+    </script>
 
 </head>
 <body class="metro">
@@ -91,7 +127,7 @@
                                 <hr />
                             </a></li>
                             <li>
-                                <asp:LinkButton Text="LogOff"  OnClick="Logoff_Click" runat="server" /></li>
+                                <asp:LinkButton Text="LogOff" OnClick="Logoff_Click" runat="server" /></li>
                             <%--<li><a href="#" runat="server" onclick="Logoff_Click">LogOff</a></li>--%>
                         </ul>
                     </div>
@@ -111,7 +147,7 @@
                             <asp:Label ID="lblUserName" Text="Usuário: " runat="server" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtUserName" />
+                            <asp:TextBox runat="server" ID="txtUserName" CssClass="textBox" />
                         </td>
                     </tr>
                     <tr>
@@ -119,7 +155,7 @@
                             <asp:Label Text="Senha: " ID="lblPassword" runat="server" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" />
+                            <asp:TextBox runat="server" ID="txtPassword" CssClass="textBox" TextMode="Password" />
                             <br />
                             <br />
                         </td>
@@ -130,7 +166,7 @@
                             <asp:Label Text="Novo Usuário: " runat="server" ID="lblNewUserName" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtNewUserName" />
+                            <asp:TextBox runat="server" CssClass="textBox" ID="txtNewUserName" />
                         </td>
                     </tr>
                     <tr>
@@ -138,7 +174,7 @@
                             <asp:Label Text="Nova Senha: " ID="lblNewPassword" runat="server" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtNewPassword" TextMode="Password" />
+                            <asp:TextBox runat="server" CssClass="textBox" ID="txtNewPassword" TextMode="Password" />
                         </td>
                     </tr>
                     <tr>
@@ -146,7 +182,7 @@
                             <asp:Label Text="Confirmação de Senha:   " ID="lblConfirmPassword" runat="server" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtConfirmPassword" TextMode="Password" />
+                            <asp:TextBox runat="server" ID="txtConfirmPassword" CssClass="textBox" TextMode="Password" />
                         </td>
                     </tr>
                     <tr>
@@ -187,23 +223,50 @@
                         <td>
                             <asp:Label Text="Separador de Porta:" ID="lblPortSeparator" runat="server" />
                         </td>
+
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDbAddress" Text="LOCALHOST" />
+                            <asp:TextBox runat="server" ID="txtDbAddress" CssClass="textBox" Text="LOCALHOST" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDbInstance" Text="SQLEXPRESS" />
+                            <asp:TextBox runat="server" ID="txtDbInstance" CssClass="textBox" Text="SQLEXPRESS" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDbName" Text="DvmsData" />
+                            <asp:TextBox runat="server" ID="txtDbName" CssClass="textBox" Text="DvmsData" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDbPort" />
+                            <asp:TextBox runat="server" ID="txtDbPort" CssClass="textBox" />
                         </td>
+                        <td style="padding-left: 20px;">
+                            <asp:TextBox runat="server" ID="txtPortSeparator" Font-Size="Larger" Font-Bold="true" Text="," CssClass="textBox" MaxLength="1" Width="40px" />
+                        </td>
+
+                    </tr>
+                    <tr>
                         <td>
-                            <asp:TextBox runat="server" ID="txtPortSeparator" Text="," MaxLength="1" />
+
+                            <div class="input-control switch">
+                                <label>
+                                    Connection String 
+                                    <input type="checkbox" id="chkConnectionString" onclick="enableConnectionString()" runat="server" />
+                                    <span class="check"></span>
+                                </label>
+                            </div>
                         </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5">
+                            <div class="input-control text" id="inpConnectionString" style="display:none; height:27px; visibility:hidden;">
+                               <%-- <input type="text" value=""   class="textBox" style="height:27px;"   />
+                                <button class="btn-clear"></button>--%>
+                                <asp:TextBox runat="server"  Height="27px" Width="750px" CssClass="textBox" ID="txtConString"/>
+                            </div>
+                            
+                            <%--<asp:TextBox  ID="txtConnectionString" CssClass="textBox no-display" TextMode="SingleLine" Width="750px" />--%>
+                        </td>
+
+
                     </tr>
                     <tr>
                         <td>
@@ -215,15 +278,15 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox runat="server" ID="txtdbUserName" />
+                            <asp:TextBox runat="server" ID="txtdbUserName" CssClass="textBox" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtdbPassword" TextMode="Password" />
+                            <asp:TextBox runat="server" ID="txtdbPassword" TextMode="Password" CssClass="textBox" />
                         </td>
                     </tr>
                 </table>
                 <br />
-                <asp:Button Text="Salvar" ID="btnSaveDbSettings" CssClass="btnSavePassword" runat="server" />
+                <asp:Button Text="Salvar" ID="btnSaveDbSettings" CssClass="btnSavePassword" runat="server" OnClick="btnSaveDbSettings_Click"  OnClientClick="saveConString"/>
 
                 <asp:Button Text="Configurações de fábrica" ID="btnFactoryReset" CssClass="btnFactory" runat="server" />
 
