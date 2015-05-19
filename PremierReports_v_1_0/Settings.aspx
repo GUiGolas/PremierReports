@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Settings.aspx.cs" Inherits="PremierReports_v_1_0.Settings" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Settings.aspx.cs" Inherits="PremierReports_v_1_0.Settings" culture="auto" meta:resourcekey="PageResource1" uiculture="auto" %>
 
 <!DOCTYPE html>
 
@@ -34,7 +34,7 @@
 
 
 
-    <title>Premier Reports - Settings</title>
+    <title>Relatorio SAM - Premier</title>
 
     <style>
         .container {
@@ -122,12 +122,16 @@
                             <span class="icon-cog"></span>
                         </a>
                         <ul class="dropdown-menu place-right" data-role="dropdown">
-                            <li><a href="#">Configurações</a></li>
+                            <%--<li><a href="#">Configurações</a></li>--%>
+                             <li>
+                                 <asp:LinkButton ID="lnkButtonSettings" Text="Configurações" PostBackUrl="~/Settings.aspx" runat="server" meta:resourcekey="lnkButtonSettingsResource1"></asp:LinkButton>
+
+                             </li>
                             <li><a href="settings.aspx">
                                 <hr />
                             </a></li>
                             <li>
-                                <asp:LinkButton Text="LogOff" OnClick="Logoff_Click" runat="server" /></li>
+                                <asp:LinkButton Text="LogOff" OnClick="Logoff_Click" runat="server" meta:resourcekey="LinkButtonResource1" /></li>
                             <%--<li><a href="#" runat="server" onclick="Logoff_Click">LogOff</a></li>--%>
                         </ul>
                     </div>
@@ -144,18 +148,18 @@
                 <table style="background-color: transparent">
                     <tr>
                         <td>
-                            <asp:Label ID="lblUserName" Text="Usuário: " runat="server" />
+                            <asp:Label ID="lblUserName" Text="Usuário: " runat="server" meta:resourcekey="lblUserNameResource1" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtUserName" CssClass="textBox" />
+                            <asp:TextBox runat="server" ID="txtUserName" CssClass="textBox" meta:resourcekey="txtUserNameResource1" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label Text="Senha: " ID="lblPassword" runat="server" />
+                            <asp:Label Text="Senha: " ID="lblPassword" runat="server" meta:resourcekey="lblPasswordResource1" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtPassword" CssClass="textBox" TextMode="Password" />
+                            <asp:TextBox runat="server" ID="txtPassword" CssClass="textBox" TextMode="Password" meta:resourcekey="txtPasswordResource1" />
                             <br />
                             <br />
                         </td>
@@ -163,37 +167,37 @@
 
                     <tr>
                         <td>
-                            <asp:Label Text="Novo Usuário: " runat="server" ID="lblNewUserName" />
+                            <asp:Label Text="Novo Usuário: " runat="server" ID="lblNewUserName" meta:resourcekey="lblNewUserNameResource1" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" CssClass="textBox" ID="txtNewUserName" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <asp:Label Text="Nova Senha: " ID="lblNewPassword" runat="server" />
-                        </td>
-                        <td>
-                            <asp:TextBox runat="server" CssClass="textBox" ID="txtNewPassword" TextMode="Password" />
+                            <asp:TextBox runat="server" CssClass="textBox" ID="txtNewUserName" meta:resourcekey="txtNewUserNameResource1" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label Text="Confirmação de Senha:   " ID="lblConfirmPassword" runat="server" />
+                            <asp:Label Text="Nova Senha: " ID="lblNewPassword" runat="server" meta:resourcekey="lblNewPasswordResource1" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtConfirmPassword" CssClass="textBox" TextMode="Password" />
+                            <asp:TextBox runat="server" CssClass="textBox" ID="txtNewPassword" TextMode="Password" meta:resourcekey="txtNewPasswordResource1" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button Text="Salvar" ID="btnSavePassword" OnClick="btnSavePassword_Click" CssClass="btnSavePassword" runat="server" />
+                            <asp:Label Text="Confirmação de Senha:   " ID="lblConfirmPassword" runat="server" meta:resourcekey="lblConfirmPasswordResource1" />
+                        </td>
+                        <td>
+                            <asp:TextBox runat="server" ID="txtConfirmPassword" CssClass="textBox" TextMode="Password" meta:resourcekey="txtConfirmPasswordResource1" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Button Text="Salvar" ID="btnSavePassword" OnClick="btnSavePassword_Click" CssClass="btnSavePassword" runat="server" meta:resourcekey="btnSavePasswordResource1" />
 
                         </td>
                     </tr>
                 </table>
                 <div>
-                    <asp:Label Text="[Error]" ID="lblError" CssClass="labelError" Visible="false" runat="server" />
+                    <asp:Label Text="[Error]" ID="lblError" CssClass="labelError" Visible="False" runat="server" meta:resourcekey="lblErrorResource1" />
                 </div>
             </div>
             <br />
@@ -204,42 +208,42 @@
             <div id="databaseSettings">
                 <h1 id="lblChangeDbSettings" style="color: white">Configurações do Banco de Dados: </h1>
                 <br />
-                <asp:Label Text="[Error]" ID="lblErrorDb" CssClass="labelError" Visible="false" runat="server" />
+                <asp:Label Text="[Error]" ID="lblErrorDb" CssClass="labelError" Visible="False" runat="server" meta:resourcekey="lblErrorDbResource1" />
                 <br />
                 <table id="tableDbSettings" style="background-color: transparent" runat="server">
                     <tr>
                         <td>
-                            <asp:Label Text="Endereço do Banco: " ID="lblDbAddress" runat="server" />
+                            <asp:Label Text="Endereço do Banco: " ID="lblDbAddress" runat="server" meta:resourcekey="lblDbAddressResource1" />
                         </td>
                         <td>
-                            <asp:Label Text="Instância da Base de Dados: " ID="lblDbInstance" runat="server" />
+                            <asp:Label Text="Instância da Base de Dados: " ID="lblDbInstance" runat="server" meta:resourcekey="lblDbInstanceResource1" />
                         </td>
                         <td>
-                            <asp:Label Text="Nome da Base de Dados: " ID="lblDbName" runat="server" />
+                            <asp:Label Text="Nome da Base de Dados: " ID="lblDbName" runat="server" meta:resourcekey="lblDbNameResource1" />
                         </td>
                         <td>
-                            <asp:Label Text="Porta do Servidor" ID="lblPort" runat="server" />
+                            <asp:Label Text="Porta do Servidor" ID="lblPort" runat="server" meta:resourcekey="lblPortResource1" />
                         </td>
                         <td>
-                            <asp:Label Text="Separador de Porta:" ID="lblPortSeparator" runat="server" />
+                            <asp:Label Text="Separador de Porta:" ID="lblPortSeparator" runat="server" meta:resourcekey="lblPortSeparatorResource1" />
                         </td>
 
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDbAddress" CssClass="textBox" Text="LOCALHOST" />
+                            <asp:TextBox runat="server" ID="txtDbAddress" CssClass="textBox" Text="LOCALHOST" meta:resourcekey="txtDbAddressResource1" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDbInstance" CssClass="textBox" Text="SQLEXPRESS" />
+                            <asp:TextBox runat="server" ID="txtDbInstance" CssClass="textBox" Text="SQLEXPRESS" meta:resourcekey="txtDbInstanceResource1" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDbName" CssClass="textBox" Text="DvmsData" />
+                            <asp:TextBox runat="server" ID="txtDbName" CssClass="textBox" Text="DvmsData" meta:resourcekey="txtDbNameResource1" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtDbPort" CssClass="textBox" />
+                            <asp:TextBox runat="server" ID="txtDbPort" CssClass="textBox" meta:resourcekey="txtDbPortResource1" />
                         </td>
                         <td style="padding-left: 20px;">
-                            <asp:TextBox runat="server" ID="txtPortSeparator" Font-Size="Larger" Font-Bold="true" Text="," CssClass="textBox" MaxLength="1" Width="40px" />
+                            <asp:TextBox runat="server" ID="txtPortSeparator" Font-Size="Larger" Font-Bold="True" Text="," CssClass="textBox" MaxLength="1" Width="40px" meta:resourcekey="txtPortSeparatorResource1" />
                         </td>
 
                     </tr>
@@ -260,7 +264,7 @@
                             <div class="input-control text" id="inpConnectionString" style="display:none; height:27px; visibility:hidden;">
                                <%-- <input type="text" value=""   class="textBox" style="height:27px;"   />
                                 <button class="btn-clear"></button>--%>
-                                <asp:TextBox runat="server"  Height="27px" Width="750px" CssClass="textBox" ID="txtConString"/>
+                                <asp:TextBox runat="server"  Height="27px" Width="750px" CssClass="textBox" ID="txtConString" meta:resourcekey="txtConStringResource1"/>
                             </div>
                             
                             <%--<asp:TextBox  ID="txtConnectionString" CssClass="textBox no-display" TextMode="SingleLine" Width="750px" />--%>
@@ -270,25 +274,25 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Label Text="Usuário: " ID="lbldbUserName" runat="server" />
+                            <asp:Label Text="Usuário: " ID="lbldbUserName" runat="server" meta:resourcekey="lbldbUserNameResource1" />
                         </td>
                         <td>
-                            <asp:Label Text="Senha: " ID="lbldbPassword" runat="server" />
+                            <asp:Label Text="Senha: " ID="lbldbPassword" runat="server" meta:resourcekey="lbldbPasswordResource1" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox runat="server" ID="txtdbUserName" CssClass="textBox" />
+                            <asp:TextBox runat="server" ID="txtdbUserName" CssClass="textBox" meta:resourcekey="txtdbUserNameResource1" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="txtdbPassword" TextMode="Password" CssClass="textBox" />
+                            <asp:TextBox runat="server" ID="txtdbPassword" TextMode="Password" CssClass="textBox" meta:resourcekey="txtdbPasswordResource1" />
                         </td>
                     </tr>
                 </table>
                 <br />
-                <asp:Button Text="Salvar" ID="btnSaveDbSettings" CssClass="btnSavePassword" runat="server" OnClick="btnSaveDbSettings_Click"  OnClientClick="saveConString"/>
+                <asp:Button Text="Salvar" ID="btnSaveDbSettings" CssClass="btnSavePassword" runat="server" OnClick="btnSaveDbSettings_Click"  OnClientClick="saveConString" meta:resourcekey="btnSaveDbSettingsResource1"/>
 
-                <asp:Button Text="Configurações de fábrica" ID="btnFactoryReset" CssClass="btnFactory" runat="server" />
+                <asp:Button Text="Configurações de fábrica" ID="btnFactoryReset" CssClass="btnFactory" runat="server" meta:resourcekey="btnFactoryResetResource1" />
 
                 <br />
 

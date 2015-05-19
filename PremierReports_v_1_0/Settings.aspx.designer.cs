@@ -22,6 +22,15 @@ namespace PremierReports_v_1_0 {
         protected global::System.Web.UI.HtmlControls.HtmlForm settingsForm;
         
         /// <summary>
+        /// lnkButtonSettings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkButtonSettings;
+        
+        /// <summary>
         /// lblUserName control.
         /// </summary>
         /// <remarks>

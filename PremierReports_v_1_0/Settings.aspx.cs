@@ -136,6 +136,14 @@ namespace PremierReports_v_1_0
                 //Let us now set the authentication cookie so that we can use that later.
                 FormsAuthentication.SetAuthCookie(loginHandler.userName, false);
 
+                if (langNumber == 0)
+                {
+                    Response.Write("<script language=javascript>alert('Senha alterada com sucesso!');</script>");
+                }
+                else
+                {
+                    Response.Write("<script language=javascript>alert('Password saved!');</script>");
+                }
             }
             catch (Exception ex)
             {

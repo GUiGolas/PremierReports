@@ -63,7 +63,7 @@
     <Content Include="App_Data\dbPremierReports_log.ldf">
       <DependentUpon>dbPremierReports.mdf</DependentUpon>
     </Content>
-    <Content Include="AuditingForm.aspx" />
+    <Content Include="AuditForm.aspx" />
     <Content Include="compress\node_modules\node-minify\.npmignore" />
     <Content Include="compress\node_modules\node-minify\LICENSE" />
     <Content Include="compress\node_modules\node-minify\node_modules\.bin\sqwish" />
@@ -590,12 +590,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuditingForm.aspx.cs">
-      <DependentUpon>AuditingForm.aspx</DependentUpon>
+    <Compile Include="AuditForm.aspx.cs">
+      <DependentUpon>AuditForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AuditingForm.aspx.designer.cs">
-      <DependentUpon>AuditingForm.aspx</DependentUpon>
+    <Compile Include="AuditForm.aspx.designer.cs">
+      <DependentUpon>AuditForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="ClassChartSql.cs" />
     <Compile Include="ClassDBAuditSql.cs" />
@@ -670,7 +670,18 @@
     <Content Include="App_LocalResources\index.aspx.en.resx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_LocalResources\Settings.aspx.resx" />
+    <Content Include="App_LocalResources\Settings.aspx.en.resx" />
+    <Content Include="App_LocalResources\ReportForm.aspx.resx" />
+    <Content Include="App_LocalResources\ReportForm.aspx.en.resx" />
+    <Content Include="App_LocalResources\GraphicsForm.aspx.resx" />
+    <Content Include="App_LocalResources\GraphicsForm.aspx.en.resx" />
+    <Content Include="App_LocalResources\AuditForm.aspx.resx" />
+    <Content Include="App_LocalResources\AuditForm.aspx.en.resx" />
+    <Content Include="App_LocalResources\main.aspx.resx" />
+    <Content Include="App_LocalResources\main.aspx.en.resx" />
     <EmbeddedResource Include="rptAudit.rdlc" />
+    <EmbeddedResource Include="rptAudition.rdlc" />
     <EmbeddedResource Include="rptEvent.rdlc" />
   </ItemGroup>
   <PropertyGroup>

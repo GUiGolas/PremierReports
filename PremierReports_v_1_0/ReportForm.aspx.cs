@@ -34,36 +34,54 @@ namespace PremierReports_v_1_0
             //if (1 == 1) return;
             if (!IsPostBack && ddlEvents.Items.Count < 1)
             {
-                DataTable dtEvents = new DataTable();
-                using (SqlConnection con = new SqlConnection(conString))
+                try
                 {
-                    try
-                    {
-                        SqlDataAdapter adapter = new SqlDataAdapter("SELECT AlarmConfigId, AlarmName FROM AlarmConfig", con);
-                        adapter.Fill(dtEvents);
-                        //filling the dropdownlist
-                        //ddlEvents.DataSource = dtEvents.Rows;
-                        //ddlEvents.DataTextField = "AlarmName";
-                        //ddlEvents.DataValueField = "AlarmId";
-                        for (int i = 0; i < dtEvents.Rows.Count; i++)
-                        {
-                            ListItem eventItem = new ListItem();
-                            eventItem.Text = dtEvents.Rows[i].ItemArray[1].ToString();
-                            eventItem.Value = dtEvents.Rows[i].ItemArray[0].ToString();
-                            ddlEvents.Items.Add(eventItem);
-                        }
 
+
+
+                    DataTable dtEvents = new DataTable();
+                    ClassDBhandler handler = new ClassDBhandler("SELECT AlarmConfigId, AlarmName FROM AlarmConfig");
+                    handler.ExecuteSql();
+                    dtEvents = handler.DataTable;
+                    //DataTable dtEvents = new DataTable();
+                    //using (SqlConnection con = new SqlConnection(conString))
+                    //{
+                    //    try
+                    //    {
+                    //        SqlDataAdapter adapter = new SqlDataAdapter("SELECT AlarmConfigId, AlarmName FROM AlarmConfig", con);
+                    //        adapter.Fill(dtEvents);
+                    //        //filling the dropdownlist
+                    //        //ddlEvents.DataSource = dtEvents.Rows;
+                    //        //ddlEvents.DataTextField = "AlarmName";
+                    //        //ddlEvents.DataValueField = "AlarmId";
+                    for (int i = 0; i < dtEvents.Rows.Count; i++)
+                    {
+                        ListItem eventItem = new ListItem();
+                        eventItem.Text = dtEvents.Rows[i].ItemArray[1].ToString();
+                        eventItem.Value = dtEvents.Rows[i].ItemArray[0].ToString();
+                        ddlEvents.Items.Add(eventItem);
+                    }
+
+                    if (langNumber == 0)
+                    {
                         ddlEvents.Items.Insert(0, new ListItem("<Selecione o evento>", "0"));
-
-
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        lblError.Text = ex.Message.ToString();
-                        lblError.Visible = true;
-                        //throw;
+                        ddlEvents.Items.Insert(0, new ListItem("<Select the event>", "0"));
                     }
+
+                    
+
+
                 }
+                catch (Exception ex)
+                {
+                    lblError.Text = ex.Message.ToString();
+                    lblError.Visible = true;
+                    //throw;
+                }
+                //}
             }
 
         }

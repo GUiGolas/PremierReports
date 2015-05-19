@@ -30,7 +30,7 @@
               <Width>3.02917cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.84396cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -610,10 +610,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsAuditSource</DataSetName>
-        <Top>0.34078cm</Top>
-        <Left>0.86995cm</Left>
+        <Top>0.17639cm</Top>
+        <Left>0.4262cm</Left>
         <Height>1.2cm</Height>
-        <Width>23.02917cm</Width>
+        <Width>23.37313cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -636,7 +636,7 @@
           <Value>LogosPremierHorizBOXazul_edit</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.89641cm</Top>
-          <Left>0.86995cm</Left>
+          <Left>1.71662cm</Left>
           <Height>1.90569cm</Height>
           <Width>3.70958cm</Width>
           <Style>
@@ -663,8 +663,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.96696cm</Top>
-          <Left>5.86995cm</Left>
+          <Top>0.89641cm</Top>
+          <Left>5.60259cm</Left>
           <Height>1.90569cm</Height>
           <Width>13.57063cm</Width>
           <ZIndex>1</ZIndex>
@@ -725,7 +725,7 @@
         </Field>
         <Field Name="EventCode">
           <DataField>EventCode</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="EventDescription">
           <DataField>EventDescription</DataField>

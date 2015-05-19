@@ -161,7 +161,7 @@ public class ClassLoginDbHandler
                 using (SqlCommand cmd = con.CreateCommand())
                 {
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "UPDATE Table SET Password = @password, username = @newusername where username = @uname";
+                    cmd.CommandText = "UPDATE Users SET Password = @password, username = @newusername where username = @uname";
                     cmd.Parameters.Add(new SqlParameter("@uname", _userName));
                     cmd.Parameters.Add(new SqlParameter("@password", _newHash));
                     cmd.Parameters.Add(new SqlParameter("@newusername", _newUserName));

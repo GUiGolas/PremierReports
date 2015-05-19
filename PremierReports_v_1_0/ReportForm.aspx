@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ReportForm.aspx.cs" Inherits="PremierReports_v_1_0.ReportForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ReportForm.aspx.cs" Inherits="PremierReports_v_1_0.ReportForm" culture="auto" meta:resourcekey="PageResource1" uiculture="auto" %>
 
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 
@@ -50,20 +50,20 @@
         }
     </style>
 
-    <title></title>
+    <title>Relatorio SAM - Premier</title>
 </head>
 <body class="metro">
-    <form id="form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true" />
-        <asp:Label ID="lblError" runat="server" Text="[Error]" Visible="False" CssClass="labelError" ></asp:Label>
+    <form id="form1" runat="server" defaultbutton="bntReportSubmit">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="True" />
+        <asp:Label ID="lblError" runat="server" Text="[Error]" Visible="False" CssClass="labelError" meta:resourcekey="lblErrorResource1" ></asp:Label>
         <div id="reportFilter" style="padding-left: 50px;">
-            <table id="tableFilter" style="color: white; font-family: 'Segoe UI Semibold_', 'Open Sans Bold', Verdana, Arial, Helvetica, sans-serif; background-color: transparent;">
+            <table id="tableFilter" style="color: white; font-family: 'Segoe UI Semibold_', 'Open Sans Bold', 'Verdana', 'Arial, Helvetica', 'sans-serif'; background-color: transparent;">
                 <tr>
                     <td>
                         <table style="font: inherit; color: inherit; background-color: transparent;">
                             <tr>
                                 <td>
-                                    <asp:Label ID="lblDateIniR" runat="server" Text="Data Inicial: *"></asp:Label>
+                                    <asp:Label ID="lblDateIniR" runat="server" Text="Data Inicial: *" meta:resourcekey="lblDateIniRResource1"></asp:Label>
                                 </td>
                                 <td>
                                     <div class="input-control text" data-role="datepicker" data-effect="slide" data-other-days="1">
@@ -140,38 +140,38 @@
 
                                 </td>
                                 <td style="padding-bottom: 11px; font-family:'Segoe UI'">
-                                    <asp:DropDownList ID="ddlHourIni" Height="33px" runat="server">
-                                        <asp:ListItem Selected="True">00:00</asp:ListItem>
-                                        <asp:ListItem>01:00</asp:ListItem>
-                                        <asp:ListItem>02:00</asp:ListItem>
-                                        <asp:ListItem>03:00</asp:ListItem>
-                                        <asp:ListItem>04:00</asp:ListItem>
-                                        <asp:ListItem>05:00</asp:ListItem>
-                                        <asp:ListItem>06:00</asp:ListItem>
-                                        <asp:ListItem>07:00</asp:ListItem>
-                                        <asp:ListItem>08:00</asp:ListItem>
-                                        <asp:ListItem>09:00</asp:ListItem>
-                                        <asp:ListItem>10:00</asp:ListItem>
-                                        <asp:ListItem>11:00</asp:ListItem>
-                                        <asp:ListItem>12:00</asp:ListItem>
-                                        <asp:ListItem>13:00</asp:ListItem>
-                                        <asp:ListItem>14:00</asp:ListItem>
-                                        <asp:ListItem>15:00</asp:ListItem>
-                                        <asp:ListItem>16:00</asp:ListItem>
-                                        <asp:ListItem>17:00</asp:ListItem>
-                                        <asp:ListItem>18:00</asp:ListItem>
-                                        <asp:ListItem>19:00</asp:ListItem>
-                                        <asp:ListItem>20:00</asp:ListItem>
-                                        <asp:ListItem>21:00</asp:ListItem>
-                                        <asp:ListItem>22:00</asp:ListItem>
-                                        <asp:ListItem>23:00</asp:ListItem>
+                                    <asp:DropDownList ID="ddlHourIni" Height="33px" runat="server" meta:resourcekey="ddlHourIniResource1">
+                                        <asp:ListItem Selected="True" meta:resourcekey="ListItemResource1">00:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource2">01:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource3">02:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource4">03:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource5">04:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource6">05:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource7">06:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource8">07:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource9">08:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource10">09:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource11">10:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource12">11:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource13">12:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource14">13:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource15">14:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource16">15:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource17">16:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource18">17:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource19">18:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource20">19:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource21">20:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource22">21:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource23">22:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource24">23:00</asp:ListItem>
                                     </asp:DropDownList>
 
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <asp:Label ID="lblDateFinR" runat="server" Text="Data Final: *"></asp:Label>
+                                    <asp:Label ID="lblDateFinR" runat="server" Text="Data Final: *" meta:resourcekey="lblDateFinRResource1"></asp:Label>
                                 </td>
                                 <td>
                                     <div class="input-control text" data-role="datepicker" data-effect="slide" data-other-days="1">
@@ -249,31 +249,31 @@
 
                                 </td>
                                 <td style="padding-bottom: 12px;">
-                                    <asp:DropDownList ID="ddlHourFin" Height="33px" runat="server">
-                                        <asp:ListItem Selected="True">00:00</asp:ListItem>
-                                        <asp:ListItem>01:00</asp:ListItem>
-                                        <asp:ListItem>02:00</asp:ListItem>
-                                        <asp:ListItem>03:00</asp:ListItem>
-                                        <asp:ListItem>04:00</asp:ListItem>
-                                        <asp:ListItem>05:00</asp:ListItem>
-                                        <asp:ListItem>06:00</asp:ListItem>
-                                        <asp:ListItem>07:00</asp:ListItem>
-                                        <asp:ListItem>08:00</asp:ListItem>
-                                        <asp:ListItem>09:00</asp:ListItem>
-                                        <asp:ListItem>10:00</asp:ListItem>
-                                        <asp:ListItem>11:00</asp:ListItem>
-                                        <asp:ListItem>12:00</asp:ListItem>
-                                        <asp:ListItem>13:00</asp:ListItem>
-                                        <asp:ListItem>14:00</asp:ListItem>
-                                        <asp:ListItem>15:00</asp:ListItem>
-                                        <asp:ListItem>16:00</asp:ListItem>
-                                        <asp:ListItem>17:00</asp:ListItem>
-                                        <asp:ListItem>18:00</asp:ListItem>
-                                        <asp:ListItem>19:00</asp:ListItem>
-                                        <asp:ListItem>20:00</asp:ListItem>
-                                        <asp:ListItem>21:00</asp:ListItem>
-                                        <asp:ListItem>22:00</asp:ListItem>
-                                        <asp:ListItem>23:00</asp:ListItem>
+                                    <asp:DropDownList ID="ddlHourFin" Height="33px" runat="server" meta:resourcekey="ddlHourFinResource1">
+                                        <asp:ListItem Selected="True" meta:resourcekey="ListItemResource25">00:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource26">01:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource27">02:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource28">03:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource29">04:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource30">05:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource31">06:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource32">07:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource33">08:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource34">09:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource35">10:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource36">11:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource37">12:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource38">13:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource39">14:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource40">15:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource41">16:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource42">17:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource43">18:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource44">19:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource45">20:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource46">21:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource47">22:00</asp:ListItem>
+                                        <asp:ListItem meta:resourcekey="ListItemResource48">23:00</asp:ListItem>
                                     </asp:DropDownList>
 
                                 </td>
@@ -285,38 +285,39 @@
                         <table style="background-color: transparent;">
                             <tr>
                                 <td>
-                                    <asp:Label ID="lblAddEventsR" runat="server" Text="Eventos:"></asp:Label>
+                                    <asp:Label ID="lblAddEventsR" runat="server" Text="Eventos:" meta:resourcekey="lblAddEventsRResource1"></asp:Label>
                                 </td>
 
                                 <td>
-                                    <asp:DropDownList ID="ddlEvents" runat="server" OnSelectedIndexChanged="ddlEvents_SelectedIndexChanged" AutoPostBack="True" Width="200px"></asp:DropDownList>
+                                    <asp:DropDownList ID="ddlEvents" runat="server" OnSelectedIndexChanged="ddlEvents_SelectedIndexChanged" AutoPostBack="True" Width="200px" meta:resourcekey="ddlEventsResource1"></asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td>
-                                    <asp:ListBox ID="lsbEvents" runat="server" BackColor="White" Enabled="False" Height="55px" SelectionMode="Multiple" Width="200px" Rows="3"></asp:ListBox>
+                                    <asp:ListBox ID="lsbEvents" runat="server" BackColor="White" Enabled="False" Height="55px" SelectionMode="Multiple" Width="200px" Rows="3" meta:resourcekey="lsbEventsResource1"></asp:ListBox>
                                     <br />
 
-                                    <asp:Button ID="bntClear" runat="server" Text="Limpar" CssClass=".button small" OnClick="bntClear_Click" />
+                                    <asp:Button ID="bntClear" runat="server" Text="Limpar" CssClass=".button small" OnClick="bntClear_Click" meta:resourcekey="bntClearResource1" />
                                     <%--<asp:CheckBox ID="chkOrderById" runat="server" Text="Id" TextAlign="Left" />--%>
                                     <label class="input-control checkbox small-check">
                                         <input id="chkOrderById" type="checkbox" runat="server"/>
                                         <span class="check"></span>
-                                        <span class="caption">Ordernar por Id</span>
+                                        <span class="caption">
+                                            <asp:Label ID="lblOrderbyID" runat="server" Text="Ordernar por ID" meta:resourcekey="lblOrderbyID1"></asp:Label></span>
                                     </label>
                                 </td>
                             </tr>
                         </table>
                     </td>
                     <td style="padding-top:20px;">
-                        <asp:Button ID="bntReportSubmit" runat="server" Text="Atualizar" CssClass=".button normal success" OnClick="bntReportSubmit_Click" />
+                        <asp:Button ID="bntReportSubmit" runat="server" Text="Atualizar" CssClass=".button normal success" OnClick="bntReportSubmit_Click" meta:resourcekey="bntReportSubmitResource1" />
                     </td>
                 </tr>
             </table>
         </div>
         <div id="reportShow" style="padding-left: 10px; color: black;">
-            <rsweb:ReportViewer ID="ReportViewerEvents" runat="server" Height="490px" Width="995px" BackColor="White" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Visible="False">
+            <rsweb:ReportViewer ID="ReportViewerEvents" runat="server" Height="490px" Width="995px" BackColor="White" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Visible="False" meta:resourcekey="ReportViewerEventsResource1">
                 <LocalReport ReportPath="rptEvent.rdlc">
                     <DataSources>
                         <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="dsSource" />

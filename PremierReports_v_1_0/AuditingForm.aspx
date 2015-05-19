@@ -6,6 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <meta name="product" content="Premier Reports" />
@@ -318,14 +319,27 @@
             </table>
         </div>
         <div id="reportShow" style="padding-left: 10px; color: black;">
-            <rsweb:ReportViewer ID="ReportViewerAudit" runat="server" Height="490px" Width="995px" BackColor="White" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Visible="False">
+           
+            <rsweb:ReportViewer ID="ReportViewerAudit" runat="server" Height="490px" Width="995px" BackColor="White" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Visible="False" ValidateRequestMode="Disabled">
                 <LocalReport ReportPath="rptAudit.rdlc">
                     <DataSources>
-                        <rsweb:ReportDataSource DataSourceId="ObjectDataSource2" Name="dsAuditSource" />
+                        <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="dsAuditSource" />
                     </DataSources>
                 </LocalReport>
             </rsweb:ReportViewer>
-            <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" TypeName="PremierReports_v_1_0.dstAuditReportTableAdapters."></asp:ObjectDataSource>
+            
+            
+             <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" TypeName="PremierReports_v_1_0.dstAuditReportTableAdapters."></asp:ObjectDataSource>
+            
+            
+             <%--<rsweb:ReportViewer ID="ReportViewerAudit" runat="server" Height="490px" Width="995px" BackColor="White" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Visible="False">
+                <LocalReport ReportPath="rptAudit.rdlc">
+                    <DataSources>
+                        <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="dsAuditSource" />
+                    </DataSources>
+                </LocalReport>
+            </rsweb:ReportViewer>
+            <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" TypeName="PremierReports_v_1_0.dstAuditReportTableAdapters."></asp:ObjectDataSource>--%>
          </div>
     </form>
 </body>
