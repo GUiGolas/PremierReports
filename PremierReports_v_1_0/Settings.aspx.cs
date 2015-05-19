@@ -8,6 +8,11 @@ using System.Globalization;
 using System.Web.Security;
 using System.IO;
 using System.Xml;
+using System.Threading;
+
+
+
+
 
 namespace PremierReports_v_1_0
 {
@@ -20,13 +25,22 @@ namespace PremierReports_v_1_0
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["MyUICulture"] != null && Session["MyCulture"] != null)
+            {
+                Thread.CurrentThread.CurrentUICulture = (CultureInfo)Session["MyUICulture"];
+                Thread.CurrentThread.CurrentCulture = (CultureInfo)Session["MyCulture"];
+                base.InitializeCulture();
+
+            }
             if (CultureInfo.CurrentCulture.DisplayName.ToString() != "Português (Brasil)")
             {
                 langNumber = 1;
+                applyTranslation(1);
             }
             else
             {
                 langNumber = 0;
+                applyTranslation(0);
             }
 
             if (!IsPostBack)
@@ -72,6 +86,38 @@ namespace PremierReports_v_1_0
                 }
             }
 
+        }
+
+        private void applyTranslation(short p)
+        {
+            try
+            {
+
+                lblConfirmPassword.Text = LanguageConstants.getErrorMessage("ConfirmPassword", p) + ":";
+                lblDbAddress.Text = LanguageConstants.getErrorMessage("DbAddress", p) + ":";
+                lblDbInstance.Text = LanguageConstants.getErrorMessage("DbInstance", p) + ":";
+                lblDbName.Text = LanguageConstants.getErrorMessage("DbName", p) + ":";
+                lbldbPassword.Text = LanguageConstants.getErrorMessage("Password", p) + ":";
+                lbldbUserName.Text = LanguageConstants.getErrorMessage("UserName", p) + ":";
+                lblNewPassword.Text = LanguageConstants.getErrorMessage("NewPassword", p) + ":";
+                lblPort.Text = LanguageConstants.getErrorMessage("DbPort", p) +":";
+                lblPortSeparator.Text = LanguageConstants.getErrorMessage("DbPortSeparator", p) + ":";
+                lblUserName.Text = LanguageConstants.getErrorMessage("UserName", p) + ":" ;
+                lblPassword.Text = LanguageConstants.getErrorMessage("Password", p) + ":";
+                
+                lnkButtonSettings.Text = LanguageConstants.getErrorMessage("Settings", p) + ":";
+
+                btnFactoryReset.Text = LanguageConstants.getErrorMessage("Factory", p);
+                btnSaveDbSettings.Text = LanguageConstants.getErrorMessage("Save", p);
+                btnSavePassword.Text = LanguageConstants.getErrorMessage("Save", p);
+
+
+            }
+            catch (Exception ex)
+            {
+                
+                throw;
+            }
         }
 
 

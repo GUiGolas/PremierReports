@@ -10,6 +10,7 @@ using System.Text;
 using System.Web.UI.DataVisualization.Charting;
 using Microsoft.Reporting.WebForms;
 using System.Globalization;
+using System.Threading;
 
 namespace PremierReports_v_1_0
 {
@@ -20,15 +21,28 @@ namespace PremierReports_v_1_0
         String conString = System.Configuration.ConfigurationManager.ConnectionStrings["MirasysDB"].ConnectionString;
         private Int16 langNumber = 0;
 
+       
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Session["MyUICulture"] != null && Session["MyCulture"] != null)
+            {
+                Thread.CurrentThread.CurrentUICulture = (CultureInfo)Session["MyUICulture"];
+                Thread.CurrentThread.CurrentCulture = (CultureInfo)Session["MyCulture"];
+                base.InitializeCulture();
+                
+            }
+
             if (CultureInfo.CurrentCulture.DisplayName.ToString() != "Português (Brasil)")
             {
                 langNumber = 1;
+                applyTranslation(1);
             }
             else
             {
                 langNumber = 0;
+                applyTranslation(0);
             }
 
             //if (1 == 1) return;
@@ -84,6 +98,27 @@ namespace PremierReports_v_1_0
                 //}
             }
 
+        }
+
+        private void applyTranslation(short p)
+        {
+            try
+            {
+
+                lblAddEventsR.Text = LanguageConstants.getErrorMessage("Events", p) + ":";
+                lblDateFinR.Text = LanguageConstants.getErrorMessage("FinalDate", p) + ":*";
+                lblDateIniR.Text = LanguageConstants.getErrorMessage("StartDate", p) + ":*";
+                lblOrderbyID.Text = LanguageConstants.getErrorMessage("OrderByID", p) + ":";
+
+                bntClear.Text = LanguageConstants.getErrorMessage("Clear", p);
+                bntReportSubmit.Text = LanguageConstants.getErrorMessage("Update", p);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
         protected void ddlEvents_SelectedIndexChanged(object sender, EventArgs e)
@@ -155,6 +190,19 @@ namespace PremierReports_v_1_0
                 hourIni = ddlHourIni.SelectedValue.ToString().Trim();
                 hourFim = ddlHourFin.SelectedValue.ToString().Trim();
 
+                DateTime _dtIni = new DateTime();
+                DateTime _dtFn = new DateTime();
+
+                _dtIni = DateTime.Parse(dateini);
+                _dtFn = DateTime.Parse(datefim);
+
+
+
+                if (DateTime.Compare(_dtIni, _dtFn) > 0)
+                {
+                    throw new Exception(ErrorConstants.getErrorMessage("dateError", langNumber));
+                }
+
                 for (int i = 0; i < lsbEvents.Items.Count; i++)
                 {
                     if (i == 0)
@@ -199,7 +247,9 @@ namespace PremierReports_v_1_0
                 ReportDataSource rds = new ReportDataSource("dsSource", (DataTable)dt);
                 ReportViewerEvents.LocalReport.DataSources.Add(rds);
                 ReportViewerEvents.LocalReport.Refresh();
-                
+
+                lblError.Visible = false;
+                ddlEvents.SelectedIndex = 0;
             }
             catch (Exception ex)
             {

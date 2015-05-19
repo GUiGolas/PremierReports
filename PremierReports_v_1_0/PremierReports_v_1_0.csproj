@@ -613,6 +613,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dstEventReport.xsd</DependentUpon>
     </Compile>
+    <Compile Include="LanguageConstants.cs" />
     <Compile Include="ErrorConstants.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -664,22 +665,22 @@
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\index.aspx.resx" />
+    <Content Include="App_LocalResources\index.aspx.pt-BR.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\index.aspx.en.resx" />
+    <Content Include="App_LocalResources\index.aspx.en-US.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\Settings.aspx.resx" />
-    <Content Include="App_LocalResources\Settings.aspx.en.resx" />
-    <Content Include="App_LocalResources\ReportForm.aspx.resx" />
-    <Content Include="App_LocalResources\ReportForm.aspx.en.resx" />
-    <Content Include="App_LocalResources\GraphicsForm.aspx.resx" />
-    <Content Include="App_LocalResources\GraphicsForm.aspx.en.resx" />
-    <Content Include="App_LocalResources\AuditForm.aspx.resx" />
-    <Content Include="App_LocalResources\AuditForm.aspx.en.resx" />
-    <Content Include="App_LocalResources\main.aspx.resx" />
-    <Content Include="App_LocalResources\main.aspx.en.resx" />
+    <Content Include="App_LocalResources\Settings.aspx.pt-BR.resx" />
+    <Content Include="App_LocalResources\Settings.aspx.en-US.resx" />
+    <Content Include="App_LocalResources\ReportForm.aspx.pt-BR.resx" />
+    <Content Include="App_LocalResources\ReportForm.aspx.en-US.resx" />
+    <Content Include="App_LocalResources\GraphicsForm.aspx.pt-BR.resx" />
+    <Content Include="App_LocalResources\GraphicsForm.aspx.en-US.resx" />
+    <Content Include="App_LocalResources\AuditForm.aspx.pt-BR.resx" />
+    <Content Include="App_LocalResources\AuditForm.aspx.en-US.resx" />
+    <Content Include="App_LocalResources\main.aspx.pt-BR.resx" />
+    <Content Include="App_LocalResources\main.aspx.en-US.resx" />
     <EmbeddedResource Include="rptAudit.rdlc" />
     <EmbeddedResource Include="rptAudition.rdlc" />
     <EmbeddedResource Include="rptEvent.rdlc" />
