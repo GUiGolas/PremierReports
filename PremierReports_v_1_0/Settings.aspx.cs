@@ -93,23 +93,25 @@ namespace PremierReports_v_1_0
             try
             {
 
-                lblConfirmPassword.Text = LanguageConstants.getErrorMessage("ConfirmPassword", p) + ":";
-                lblDbAddress.Text = LanguageConstants.getErrorMessage("DbAddress", p) + ":";
-                lblDbInstance.Text = LanguageConstants.getErrorMessage("DbInstance", p) + ":";
-                lblDbName.Text = LanguageConstants.getErrorMessage("DbName", p) + ":";
-                lbldbPassword.Text = LanguageConstants.getErrorMessage("Password", p) + ":";
-                lbldbUserName.Text = LanguageConstants.getErrorMessage("UserName", p) + ":";
-                lblNewPassword.Text = LanguageConstants.getErrorMessage("NewPassword", p) + ":";
-                lblPort.Text = LanguageConstants.getErrorMessage("DbPort", p) +":";
-                lblPortSeparator.Text = LanguageConstants.getErrorMessage("DbPortSeparator", p) + ":";
-                lblUserName.Text = LanguageConstants.getErrorMessage("UserName", p) + ":" ;
-                lblPassword.Text = LanguageConstants.getErrorMessage("Password", p) + ":";
-                
-                lnkButtonSettings.Text = LanguageConstants.getErrorMessage("Settings", p) + ":";
+                lblConfirmPassword.Text = LanguageConstants.getMessage("ConfirmPassword", p) + ":";
+                lblDbAddress.Text = LanguageConstants.getMessage("DbAddress", p) + ":";
+                lblDbInstance.Text = LanguageConstants.getMessage("DbInstance", p) + ":";
+                lblDbName.Text = LanguageConstants.getMessage("DbName", p) + ":";
+                lbldbPassword.Text = LanguageConstants.getMessage("Password", p) + ":";
+                lbldbUserName.Text = LanguageConstants.getMessage("UserName", p) + ":";
+                lblNewPassword.Text = LanguageConstants.getMessage("NewPassword", p) + ":";
+                lblPort.Text = LanguageConstants.getMessage("DbPort", p) +":";
+                lblPortSeparator.Text = LanguageConstants.getMessage("DbPortSeparator", p) + ":";
+                lblUserName.Text = LanguageConstants.getMessage("UserName", p) + ":" ;
+                lblPassword.Text = LanguageConstants.getMessage("Password", p) + ":";
+                lblChangePassword.Text = LanguageConstants.getMessage("ChangePassword", p) + ":";
+                lblDBConfig.Text = LanguageConstants.getMessage("DbConfig", p) + ":";
 
-                btnFactoryReset.Text = LanguageConstants.getErrorMessage("Factory", p);
-                btnSaveDbSettings.Text = LanguageConstants.getErrorMessage("Save", p);
-                btnSavePassword.Text = LanguageConstants.getErrorMessage("Save", p);
+                lnkButtonSettings.Text = LanguageConstants.getMessage("Settings", p) + ":";
+
+                btnFactoryReset.Text = LanguageConstants.getMessage("Factory", p);
+                btnSaveDbSettings.Text = LanguageConstants.getMessage("Save", p);
+                btnSavePassword.Text = LanguageConstants.getMessage("Save", p);
 
 
             }
@@ -149,22 +151,22 @@ namespace PremierReports_v_1_0
                 //check if the new password and confirmation password is the same
                 if (txtConfirmPassword.Text != txtNewPassword.Text)
                 {
-                    throw new Exception(ErrorConstants.getErrorMessage("passwordDontMatch", langNumber));
+                    throw new Exception(ErrorConstants.getMessage("passwordDontMatch", langNumber));
                 }
                 //check if the lenght of new password is greather than 3
                 if (txtConfirmPassword.Text.Length < 4)
                 {
-                    throw new Exception(ErrorConstants.getErrorMessage("passwordlength", langNumber));
+                    throw new Exception(ErrorConstants.getMessage("passwordlength", langNumber));
                 }
                 // check if the lenght of new user name is greather than 2
                 if (txtNewUserName.Text.Length < 3)
                 {
-                    throw new Exception(ErrorConstants.getErrorMessage("userNameMinLength", langNumber));
+                    throw new Exception(ErrorConstants.getMessage("userNameMinLength", langNumber));
                 }
                 //check if the UserName and Password exist and if is correct
                 // Verify if the login is valid
                 ClassLoginDbHandler loginHandler = new ClassLoginDbHandler();
-                if (!loginHandler.CheckUser(txtUserName.Text.Trim(), txtPassword.Text.Trim())) throw new Exception(ErrorConstants.getErrorMessage("loginFailed", langNumber));
+                if (!loginHandler.CheckUser(txtUserName.Text.Trim(), txtPassword.Text.Trim())) throw new Exception(ErrorConstants.getMessage("loginFailed", langNumber));
 
                 // changing the password
                 md5 encript = new md5(txtConfirmPassword.Text);
@@ -229,7 +231,7 @@ namespace PremierReports_v_1_0
             {
                 if (txtDbAddress.Text.Length < 1 || txtDbInstance.Text.Length < 1 || txtDbName.Text.Length < 1)
                 {
-                    throw new Exception(ErrorConstants.getErrorMessage("missingFields", langNumber));
+                    throw new Exception(ErrorConstants.getMessage("missingFields", langNumber));
                 }
 
                   

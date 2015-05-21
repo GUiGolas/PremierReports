@@ -143,7 +143,8 @@
         <br />
         <div id="content" style="padding-left: 50px;">
             <div id="PasswordSettings">
-                <h1 id="lblChangePassword" style="color: white">Trocar Senha:</h1>
+                <h1 style="color: white">
+                    <asp:Label Text="Trocar Senha:" ID="lblChangePassword" runat="server" /></h1>
                 <br />
                 <table style="background-color: transparent">
                     <tr>
@@ -206,7 +207,8 @@
             <br />
 
             <div id="databaseSettings">
-                <h1 id="lblChangeDbSettings" style="color: white">Configurações do Banco de Dados: </h1>
+                <h1 id="lblChangeDbSettings" style="color: white">
+                    <asp:Label Text="Configurações do Banco de Dados:" ID="lblDBConfig" runat="server" /></h1>
                 <br />
                 <asp:Label Text="[Error]" ID="lblErrorDb" CssClass="labelError" Visible="False" runat="server" meta:resourcekey="lblErrorDbResource1" />
                 <br />
@@ -298,7 +300,9 @@
 
             </div>
         </div>
-
+        <div id="divAbout" style="position:absolute; top:6%; left:65%; right:5%; width:500px; height:700px;">
+            <iframe src="about.aspx" style="border:hidden; width:inherit; height:inherit;" ></iframe>
+        </div>
     </form>
     <footer>
         <div style="position: fixed; bottom: 0; left: 100px; right: 0;">

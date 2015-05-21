@@ -39,9 +39,9 @@ namespace PremierReports_v_1_0
             try
             {
 
-                lblLanguage.Text = LanguageConstants.getErrorMessage("Language", p) + ":";
-                lblPassword.Text = LanguageConstants.getErrorMessage("Password", p) + ":";
-                lblUserName.Text = LanguageConstants.getErrorMessage("UserName", p) + ":";
+                lblLanguage.Text = LanguageConstants.getMessage("Language", p) + ":";
+                lblPassword.Text = LanguageConstants.getMessage("Password", p) + ":";
+                lblUserName.Text = LanguageConstants.getMessage("UserName", p) + ":";
             }
             catch (Exception ex)
             {
@@ -58,17 +58,17 @@ namespace PremierReports_v_1_0
                 // Validade userName field
                 if (txtUserName.Text.Trim().Length < 3)
                 {
-                    throw new Exception(ErrorConstants.getErrorMessage("userNameMinLength", langNumber));
+                    throw new Exception(ErrorConstants.getMessage("userNameMinLength", langNumber));
                 }
                 // Validade the password field
                 if ( txtPassword.Text.Trim().Length < 4)
                 {
-                    throw new Exception(ErrorConstants.getErrorMessage("passwordMinLength", langNumber));
+                    throw new Exception(ErrorConstants.getMessage("passwordMinLength", langNumber));
                 }
 
                 // Verify if the login is valid
                 ClassLoginDbHandler loginHandler = new ClassLoginDbHandler();
-                if (!loginHandler.CheckUser(txtUserName.Text.Trim(), txtPassword.Text.Trim())) throw new Exception(ErrorConstants.getErrorMessage("loginFailed",langNumber));
+                if (!loginHandler.CheckUser(txtUserName.Text.Trim(), txtPassword.Text.Trim())) throw new Exception(ErrorConstants.getMessage("loginFailed",langNumber));
 
                 //save logged user in application Session
                 Session["user"] = loginHandler.userName;

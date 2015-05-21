@@ -22,7 +22,7 @@ public class ClassDBhandler:IDisposable
     private DataTable dt;
     bool disposed;
     //string configFilePath = @"E:\Visual Studio\Projects\Premier\PremierReports_v_1_0\config\config.xml";
-    private string configFilePath =  Environment.GetFolderPath(Environment.SpecialFolder.Personal) + @"\Premier Reports\config\config.xml";
+    private string configFilePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + @"\Premier\Relatorio SAM\config\config.xml";
     #endregion
 
     #region Properties

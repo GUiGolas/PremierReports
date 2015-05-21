@@ -15,7 +15,7 @@ public class ClassLoginDbHandler
     public string userName { get; set; }
     public string hash { get; set; }
     public bool root { get; set; }
-    string configFilePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + @"\Premier Reports\config\config.xml";
+    string configFilePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + @"\Premier\Relatorio SAM\config\config.xml";
     private string connectionString;
     
     public ClassLoginDbHandler()

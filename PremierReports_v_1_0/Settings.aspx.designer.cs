@@ -31,6 +31,15 @@ namespace PremierReports_v_1_0 {
         protected global::System.Web.UI.WebControls.LinkButton lnkButtonSettings;
         
         /// <summary>
+        /// lblChangePassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblChangePassword;
+        
+        /// <summary>
         /// lblUserName control.
         /// </summary>
         /// <remarks>
@@ -137,6 +146,15 @@ namespace PremierReports_v_1_0 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
+        
+        /// <summary>
+        /// lblDBConfig control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDBConfig;
         
         /// <summary>
         /// lblErrorDb control.

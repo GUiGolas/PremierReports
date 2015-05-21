@@ -55,11 +55,32 @@ namespace PremierReports_v_1_0
 
         private static string[] Chart = new string[2] { "Gráfico", "Chart" };
 
-        public static string getErrorMessage(string Error, Int16 pt)
+        private static string[] DbConfig = new string[2] { "Configurações do Banco de Dados", "Database Settings" };
+
+        private static string[] ChangePassword = new string[2] { "Trocar senha", "Change Password" };
+
+        private static string[] about = new string[2] { "Sobre", "About" };
+
+        private static string[] contact = new string[2] { "Contato", "Contact" };
+
+        private static string[] aboutText = new string[2] { "Sobre Premier", "About Premier" };
+
+        public static string getMessage(string Error, Int16 pt)
         {
 
             switch (Error)
             {
+                case "about":
+                    return about[pt];
+                case "contact":
+                    return contact[pt];
+                case "aboutText":
+                    return aboutText[pt];
+                case "DbConfig":
+                    return DbConfig[pt];
+                case "ChangePassword":
+                    return ChangePassword[pt];
+
                 case "Language":
                     return Language[pt];
                 case "Clear":

@@ -105,13 +105,13 @@ namespace PremierReports_v_1_0
             try
             {
 
-                lblAddEventsR.Text = LanguageConstants.getErrorMessage("Events", p) + ":";
-                lblDateFinR.Text = LanguageConstants.getErrorMessage("FinalDate", p) + ":*";
-                lblDateIniR.Text = LanguageConstants.getErrorMessage("StartDate", p) + ":*";
-                lblOrderbyID.Text = LanguageConstants.getErrorMessage("OrderByID", p) + ":";
+                lblAddEventsR.Text = LanguageConstants.getMessage("Events", p) + ":";
+                lblDateFinR.Text = LanguageConstants.getMessage("FinalDate", p) + ":*";
+                lblDateIniR.Text = LanguageConstants.getMessage("StartDate", p) + ":*";
+                lblOrderbyID.Text = LanguageConstants.getMessage("OrderByID", p) + ":";
 
-                bntClear.Text = LanguageConstants.getErrorMessage("Clear", p);
-                bntReportSubmit.Text = LanguageConstants.getErrorMessage("Update", p);
+                bntClear.Text = LanguageConstants.getMessage("Clear", p);
+                bntReportSubmit.Text = LanguageConstants.getMessage("Update", p);
 
             }
             catch (Exception ex)
@@ -128,7 +128,7 @@ namespace PremierReports_v_1_0
                 if (lsbEvents.Items.Count == 3)
                 {
                     lblError.Visible = true;
-                    lblError.Text = ErrorConstants.getErrorMessage("numberEventsExceded", langNumber);
+                    lblError.Text = ErrorConstants.getMessage("numberEventsExceded", langNumber);
 
                 }
                 else
@@ -200,7 +200,7 @@ namespace PremierReports_v_1_0
 
                 if (DateTime.Compare(_dtIni, _dtFn) > 0)
                 {
-                    throw new Exception(ErrorConstants.getErrorMessage("dateError", langNumber));
+                    throw new Exception(ErrorConstants.getMessage("dateError", langNumber));
                 }
 
                 for (int i = 0; i < lsbEvents.Items.Count; i++)
