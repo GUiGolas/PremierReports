@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Globalization;
 using System.Threading;
 using System.Web.Security;
+using System.Diagnostics;
 
 namespace PremierReports_v_1_0
 {
@@ -55,6 +56,14 @@ namespace PremierReports_v_1_0
             //   *** Validate fields *** 
             try
             {
+                if (!EventLog.SourceExists("SAM"))
+                {
+                    EventLog.CreateEventSource("SAM", "Application");
+                }
+                EventLog.WriteEntry("SAM", "This is just a test.",
+                     EventLogEntryType.Information);
+
+
                 // Validade userName field
                 if (txtUserName.Text.Trim().Length < 3)
                 {
@@ -68,7 +77,9 @@ namespace PremierReports_v_1_0
 
                 // Verify if the login is valid
                 ClassLoginDbHandler loginHandler = new ClassLoginDbHandler();
-                if (!loginHandler.CheckUser(txtUserName.Text.Trim(), txtPassword.Text.Trim())) throw new Exception(ErrorConstants.getMessage("loginFailed",langNumber));
+                //if (!loginHandler.CheckUser(txtUserName.Text.Trim(), txtPassword.Text.Trim())) throw new Exception(ErrorConstants.getMessage("loginFailed",langNumber));
+
+                if (!loginHandler.login(txtUserName.Text.Trim(), txtPassword.Text.Trim())) throw new Exception(ErrorConstants.getMessage("loginFailed", langNumber));
 
                 //save logged user in application Session
                 Session["user"] = loginHandler.userName;
@@ -93,6 +104,7 @@ namespace PremierReports_v_1_0
                     Response.Redirect("index.aspx");
                 }
 
+              
             }
             catch (Exception ex)
             {

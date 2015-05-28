@@ -18,7 +18,7 @@ namespace PremierReports_v_1_0
     {
         /// get ConnectionString
         /// 
-        String conString = System.Configuration.ConfigurationManager.ConnectionStrings["MirasysDB"].ConnectionString;
+        //String conString = System.Configuration.ConfigurationManager.ConnectionStrings["MirasysDB"].ConnectionString;
         private Int16 langNumber = 0;
 
        

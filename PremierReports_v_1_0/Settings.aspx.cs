@@ -20,7 +20,7 @@ namespace PremierReports_v_1_0
     {
         /// get ConnectionString
         /// 
-        String conString = System.Configuration.ConfigurationManager.ConnectionStrings["MirasysDB"].ConnectionString;
+       // String conString = System.Configuration.ConfigurationManager.ConnectionStrings["MirasysDB"].ConnectionString;
         private Int16 langNumber = 0;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -132,12 +132,16 @@ namespace PremierReports_v_1_0
 
 
             // clear the data from session
-            if (Session["user"].ToString().Length > 0)
+            if (Session["user"] != null)
             {
-                Session["user"] = string.Empty;
-                Session["password"] = string.Empty;
-                Session["logged"] = false;
-            }
+                if (Session["user"].ToString().Length > 0)
+                {
+                    Session["user"] = string.Empty;
+                    Session["password"] = string.Empty;
+                    Session["logged"] = false;
+                }
+            }    
+           
 
             FormsAuthentication.SignOut();
             FormsAuthentication.RedirectToLoginPage();
@@ -166,14 +170,14 @@ namespace PremierReports_v_1_0
                 //check if the UserName and Password exist and if is correct
                 // Verify if the login is valid
                 ClassLoginDbHandler loginHandler = new ClassLoginDbHandler();
-                if (!loginHandler.CheckUser(txtUserName.Text.Trim(), txtPassword.Text.Trim())) throw new Exception(ErrorConstants.getMessage("loginFailed", langNumber));
-
+                //if (!loginHandler.CheckUser(txtUserName.Text.Trim(), txtPassword.Text.Trim())) throw new Exception(ErrorConstants.getMessage("loginFailed", langNumber));
+               
                 // changing the password
                 md5 encript = new md5(txtConfirmPassword.Text);
                 encript.Encript();
                 string newPass = encript.hash;
 
-                loginHandler.ChangePassword(txtUserName.Text, txtNewUserName.Text, loginHandler.hash, newPass);
+                loginHandler.ChangePassword(txtUserName.Text, txtNewUserName.Text, txtPassword.Text, newPass);
 
 
                 //save logged user in application Session

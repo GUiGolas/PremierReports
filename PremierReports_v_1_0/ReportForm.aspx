@@ -26,7 +26,7 @@
 
     <!-- Local JavaScript -->
     <script src="js/github.info.js"></script>
-    <script src="js/ga.js"></script>
+   <%-- <script src="js/ga.js"></script>--%>
 
     <!-- Calendar -->
     <script src="js/metro-calendar.js"></script>

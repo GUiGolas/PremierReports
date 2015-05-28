@@ -27,7 +27,7 @@
 
     <!-- Local JavaScript -->
     <script src="js/github.info.js"></script>
-    <script src="js/ga.js"></script>
+   <%-- <script src="js/ga.js"></script>--%>
 
     <!-- Tab Control -->
     <script src="js/metro-tab-control.js"></script>

@@ -62,12 +62,16 @@ namespace PremierReports_v_1_0
 
             
             // clear the data from session
+            if (Session["user"] != null)
+            {
                 if (Session["user"].ToString().Length > 0)
                 {
                     Session["user"] = string.Empty;
                     Session["password"] = string.Empty;
                     Session["logged"] = false;
                 }
+            }    
+           
 
                 FormsAuthentication.SignOut();
                 FormsAuthentication.RedirectToLoginPage();

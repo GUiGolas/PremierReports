@@ -7,6 +7,9 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.IO;
 using System.Xml;
+using System.Diagnostics;
+
+
 
 /// <summary>
 /// Class to handler the connection with the DataBase. Only this class can access the DB. A sql command query is required to the contructor
@@ -22,7 +25,9 @@ public class ClassDBhandler:IDisposable
     private DataTable dt;
     bool disposed;
     //string configFilePath = @"E:\Visual Studio\Projects\Premier\PremierReports_v_1_0\config\config.xml";
-    private string configFilePath = Environment.GetFolderPath(Environment.SpecialFolder.Personal) + @"\Premier\Relatorio SAM\config\config.xml";
+    private string configFilePath =AppDomain.CurrentDomain.BaseDirectory + @"config\config.xml";
+    private string defaulFilePath = AppDomain.CurrentDomain.BaseDirectory + @"config\config.xml";
+
     #endregion
 
     #region Properties
@@ -70,9 +75,33 @@ public class ClassDBhandler:IDisposable
             // get the configuration strings from config file.
 
             // - first check the user settings
-            if (getUserDb()) ;
-            else getDefaultDB();
+            if (getUserDb()) {
+                if (!EventLog.SourceExists("SAM"))
+            {
+                EventLog.CreateEventSource("SAM", "Application");
+            }
+            EventLog.WriteEntry("SAM", "USER DB GET SUCCESSFULL",
+                 EventLogEntryType.Information);
+            
+        }
+            else{ 
 
+
+                
+                getDefaultDB();
+
+
+
+                if (!EventLog.SourceExists("SAM"))
+                {
+                    EventLog.CreateEventSource("SAM", "Application");
+                }
+                EventLog.WriteEntry("SAM", "DEFAULT GET DB SUCCESS",
+                     EventLogEntryType.Information);
+            
+
+
+            }
         }
         catch (Exception ex)
         {
@@ -88,12 +117,27 @@ public class ClassDBhandler:IDisposable
         try
         {
             // check if the file exists
+            string path;
             if (File.Exists(configFilePath))
             {
+                path = configFilePath;
+            }
+            else
+            {
+                if (File.Exists(defaulFilePath))
+                {
+                    path = defaulFilePath;
+                }
+                else{
+                    throw new Exception("Error: missing configuration file, or file not acessible.");
+                }
+            }
+            
+            
                 //Open the file
 
                 XmlDocument doc = new XmlDocument();
-                doc.Load(configFilePath); // loading file
+                doc.Load(path); // loading file
                 XmlNodeList xnList = doc.GetElementsByTagName("default");
                 string conString = xnList[0]["connectionstring"].InnerText;
                 if (conString == String.Empty || conString.Length < 2)
@@ -121,7 +165,12 @@ public class ClassDBhandler:IDisposable
                         builder.Password = _password;
                     }
 
-
+                    if (!EventLog.SourceExists("SAM"))
+                    {
+                        EventLog.CreateEventSource("SAM", "Application");
+                    }
+                    EventLog.WriteEntry("SAM", "ConnectionString - getuserDB: " + builder.ConnectionString + "\n ConfigFilePath: " + configFilePath,
+                         EventLogEntryType.Information);
 
                     //string commandString;
                     //if (_username == string.Empty || _username.Length < 2)
@@ -152,11 +201,7 @@ public class ClassDBhandler:IDisposable
                     }
                     return true;
                 }
-            }
-            else
-            {
-                throw new Exception("Error: missing configuration file, or file not acessible.");
-            }
+            
         }
         catch (Exception ex)
         {
@@ -169,13 +214,28 @@ public class ClassDBhandler:IDisposable
     {
         try
         {
-            // check if the file exists
+
+            string path;
             if (File.Exists(configFilePath))
             {
+                path = configFilePath;
+            }
+            else
+            {
+                if (File.Exists(defaulFilePath))
+                {
+                    path = defaulFilePath;
+                }
+                else
+                {
+                    throw new Exception("Error: missing configuration file, or file not acessible.");
+                }
+            }
+
                 //Open the file
 
                 XmlDocument doc = new XmlDocument();
-                doc.Load(configFilePath); // loading file
+                doc.Load(path); // loading file
                 XmlNodeList xnList = doc.GetElementsByTagName("userdb");
                 string conString = xnList[0]["connectionstring"].InnerText;
                 if (conString == String.Empty || conString.Length < 2)
@@ -217,6 +277,13 @@ public class ClassDBhandler:IDisposable
 
                     //commandString = commandString + " server=" + _address +"; database = " + _name +  "; connection timeout=10";
 
+                    if (!EventLog.SourceExists("SAM"))
+                    {
+                        EventLog.CreateEventSource("SAM", "Application");
+                    }
+                    EventLog.WriteEntry("SAM", "ConnectionString - getdefaultDB: " + builder.ConnectionString + "\n ConfigFilePath: " + configFilePath,
+                         EventLogEntryType.Information);
+
                     using (SqlConnection conn = new SqlConnection(builder.ConnectionString))
                     {
                         conn.Open(); // throws if invalid
@@ -235,13 +302,14 @@ public class ClassDBhandler:IDisposable
                     return true;
                 }
             }
-            else
-            {
-                throw new Exception("Error: missing configuration file, or file not acessible.");
-            }
-        }
         catch (Exception ex )
         {
+            if (!EventLog.SourceExists("SAM"))
+            {
+                EventLog.CreateEventSource("SAM", "Application");
+            }
+            EventLog.WriteEntry("SAM", "ERROR: Exception: " + ex.Message,
+                 EventLogEntryType.Information);
             return false;
             //throw;
         }
