@@ -77,7 +77,7 @@ namespace PremierReports_v_1_0
             try
             {
 
-                lblAddEventsR.Text = LanguageConstants.getMessage("Events", p) + ":*";
+                lblAddEventsR.Text = LanguageConstants.getMessage("UserName", p) + ":*";
                 lblDateFinR.Text = LanguageConstants.getMessage("FinalDate", p) + ":*";
                 lblDateIniR.Text = LanguageConstants.getMessage("StartDate", p) + ":";
                 

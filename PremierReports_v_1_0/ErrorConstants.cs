@@ -24,6 +24,9 @@ namespace PremierReports_v_1_0
         private static string[] missingFields = new string[2] { "Está faltando preencher algum campo obrigatório.", "Some required field is missing." };
 
         private static string[] dateError = new string[2] { "A data final não pode ser menor que a data inicial.", "The final date cannot be greater then the start date." };
+
+        private static string[] chartError = new string[2] { "Erro ao renderizar o gráfico! \n Este erro pode ser causado quando os eventos selecionados retornam uma quantidade diferente de amostras. \n Por favor altere as datas ou altere o tipo de gráfoco.", 
+            "Error while rendering the chart! \n This error occour when the events return a different amount of samples. \n Please change the dates or the chart type." };
         
         
         public static string getMessage(string Error, Int16 pt)
@@ -31,6 +34,8 @@ namespace PremierReports_v_1_0
 
             switch (Error)
             {
+                case "chartError":
+                    return chartError[pt];
                 case "userNameMinLength":
                     return userNameMinLength[pt];
                 case "passwordMinLength":

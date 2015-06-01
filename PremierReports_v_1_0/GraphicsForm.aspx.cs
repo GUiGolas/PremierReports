@@ -258,13 +258,24 @@ namespace PremierReports_v_1_0
                 //Clear chart
                 ReportChart.Series.Clear();
                 ReportChart.Visible = true;
-                ReportChart.DataBindCrossTable(chartHandler.DataTable.AsEnumerable(), "ID", "TIME", "QTD","Label=QTD" );
+                try
+                {
+                    ReportChart.DataBindCrossTable(chartHandler.DataTable.AsEnumerable(), "ID", "TIME", "QTD", "Label=QTD");
+                }
+                catch (Exception ex)
+                {
+                    lblError.Text = ex.Message + "\n\n**" + ErrorConstants.getMessage("chartError", langNumber);
+                    lblError.Visible = true;
+                    ddlEvents.SelectedIndex = 0;
+                    return;
+                    //throw;
+                }
                 ReportChart.Titles.Add("Relatório Premier");
                 ReportChart.ChartAreas[0].AxisX.Title = "Time";
                 ReportChart.ChartAreas[0].AxisY.Title = "QTD";
                 ReportChart.Legends.Clear();
 
-                string _lsbValue= "";
+               
                 Dictionary<int, string> dictionary = new Dictionary<int, string>();
 
 
